@@ -1,0 +1,9 @@
+version: 1
+name: nominal
+description: The task exactly as the policy was trained on it.
+env: pusht
+episodes: 50
+seed: 1000
+assertions:
+  success_rate: { min: 0.5 }
+tags: [baseline]

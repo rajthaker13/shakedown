@@ -1,0 +1,14 @@
+version: 1
+name: lighting-dim
+description: Overhead lights dimmed, as in a workcell at the end of a shift or with a failed fixture.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+sweep:
+  name: level
+  values: [0.7, 0.4]
+perturbations:
+  - lighting: { intensity: "${level}", ambient: "${level}" }
+assertions:
+  success_rate: { min: 0.7 }
+tags: [vision, lighting]

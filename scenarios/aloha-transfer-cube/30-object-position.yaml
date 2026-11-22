@@ -1,0 +1,14 @@
+version: 1
+name: object-position
+description: The cube starts outside the area covered by the training data.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+sweep:
+  name: dy
+  values: [3, 6]
+perturbations:
+  - object_pose: { offset_cm: [0, "${dy}"] }
+assertions:
+  success_rate: { min: 0.6 }
+tags: [distribution-shift]

@@ -1,0 +1,5187 @@
+{
+  "schema": 1,
+  "id": "90a0397a-68aa-4f7b-b23c-628256b68b35",
+  "engine_version": "0.1.0",
+  "suite": "aloha-latency",
+  "policy": {
+    "label": "n100",
+    "spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human",
+    "info": {
+      "kind": "lerobot",
+      "type": "act",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "device": "cuda",
+      "dtype": "float32",
+      "parameters": 51613582,
+      "action_dim": 14,
+      "options": {},
+      "latency_compensation": 0,
+      "weights_sha256": "aff8cfb701ae7e9e779784bb90d408c6f1fa1ea80c8d0604b6ee346ad8d8b7c0"
+    }
+  },
+  "git": {
+    "sha": null,
+    "branch": null,
+    "message": null,
+    "dirty": null,
+    "repository": null,
+    "pull_request": null
+  },
+  "host": {
+    "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+    "python": "3.11.10",
+    "machine": "x86_64"
+  },
+  "started_at": "2026-09-28T09:47:10+00:00",
+  "finished_at": "2026-09-28T10:03:13+00:00",
+  "duration_s": 962.63,
+  "baseline": null,
+  "verdict": "SKIP",
+  "summary": {
+    "conditions": 6,
+    "pass": 0,
+    "warn": 0,
+    "fail": 0,
+    "skip": 6,
+    "error": 0,
+    "regressions": 0,
+    "episodes": 300,
+    "successes": 184,
+    "success_rate": 0.6133333333333333
+  },
+  "conditions": [
+    {
+      "key": "latency-longer-limit@10",
+      "scenario": "latency-longer-limit",
+      "label": "latency-longer-limit \u00b7 steps=10",
+      "description": "The same delays with half as much time again to finish. If success recovers here, the failures under delay were slow episodes, not failed manipulation.\n",
+      "env": "aloha/transfer_cube",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 10,
+      "tags": [
+        "timing",
+        "control"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 10
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency(steps=10)"
+      ],
+      "fingerprint": "d7c200d3ee443816",
+      "episodes": 50,
+      "successes": 23,
+      "success_rate": 0.46,
+      "ci_low": 0.3296965219246634,
+      "ci_high": 0.5960112860057887,
+      "mean_steps_success": 331.5652173913044,
+      "contacts": {
+        "gripper:table": 34
+      },
+      "failure_labels": {
+        "lifted the cube but the left gripper never reached it": 25,
+        "touched the cube but did not lift it": 2
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": true,
+        "1002": true,
+        "1003": false,
+        "1004": false,
+        "1005": false,
+        "1006": true,
+        "1007": false,
+        "1008": true,
+        "1009": false,
+        "1010": false,
+        "1011": true,
+        "1012": false,
+        "1013": false,
+        "1014": false,
+        "1015": false,
+        "1016": true,
+        "1017": false,
+        "1018": false,
+        "1019": false,
+        "1020": true,
+        "1021": true,
+        "1022": false,
+        "1023": false,
+        "1024": false,
+        "1025": true,
+        "1026": true,
+        "1027": false,
+        "1028": false,
+        "1029": false,
+        "1030": true,
+        "1031": false,
+        "1032": true,
+        "1033": true,
+        "1034": false,
+        "1035": true,
+        "1036": true,
+        "1037": true,
+        "1038": false,
+        "1039": true,
+        "1040": true,
+        "1041": true,
+        "1042": true,
+        "1043": false,
+        "1044": true,
+        "1045": true,
+        "1046": false,
+        "1047": false,
+        "1048": false,
+        "1049": true
+      },
+      "duration_s": 577.05,
+      "scenario_source": "version: 1\nname: latency-longer-limit\ndescription: >\n  The same delays with half as much time again to finish. If success recovers\n  here, the failures under delay were slow episodes, not failed manipulation.\nenv: aloha/transfer_cube\nepisodes: 50\nseed: 1000\nmax_steps: 600\nsweep:\n  name: steps\n  values: [5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing, control]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 11.161,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 141,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_10/1000.mp4",
+          "trace": "episodes/latency-longer-limit_10/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": true,
+          "steps": 355,
+          "max_reward": 4.0,
+          "duration_s": 6.143,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": "episodes/latency-longer-limit_10/1001.mp4",
+          "trace": "episodes/latency-longer-limit_10/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": true,
+          "steps": 328,
+          "max_reward": 4.0,
+          "duration_s": 5.86,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.37,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 146,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 172
+          },
+          "video": "episodes/latency-longer-limit_10/1003.mp4",
+          "trace": "episodes/latency-longer-limit_10/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.024,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 152,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_10/1004.mp4",
+          "trace": "episodes/latency-longer-limit_10/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 9.687,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 149,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 164
+          },
+          "video": "episodes/latency-longer-limit_10/1005.mp4",
+          "trace": "episodes/latency-longer-limit_10/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": true,
+          "steps": 307,
+          "max_reward": 4.0,
+          "duration_s": 5.23,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 9.778,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 116,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_10/1007.mp4",
+          "trace": "episodes/latency-longer-limit_10/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": true,
+          "steps": 383,
+          "max_reward": 4.0,
+          "duration_s": 7.227,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.433,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 136,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": "episodes/latency-longer-limit_10/1009.mp4",
+          "trace": "episodes/latency-longer-limit_10/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 600,
+          "max_reward": 1.0,
+          "duration_s": 10.377,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 175,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_10/1010.mp4",
+          "trace": "episodes/latency-longer-limit_10/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": true,
+          "steps": 346,
+          "max_reward": 4.0,
+          "duration_s": 5.886,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 149
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 9.727,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 153,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": "episodes/latency-longer-limit_10/1012.mp4",
+          "trace": "episodes/latency-longer-limit_10/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.104,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 148,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 270
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 9.833,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 141,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.816,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 123,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 389,
+          "max_reward": 4.0,
+          "duration_s": 6.577,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 210
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.704,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 153,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 549
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.486,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 160,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 9.906,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 124,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": true,
+          "steps": 310,
+          "max_reward": 4.0,
+          "duration_s": 5.246,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 128
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": true,
+          "steps": 300,
+          "max_reward": 4.0,
+          "duration_s": 5.072,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 150
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.689,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 148,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.511,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 100,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 11.16,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 185,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 190
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": true,
+          "steps": 302,
+          "max_reward": 4.0,
+          "duration_s": 5.44,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": true,
+          "steps": 320,
+          "max_reward": 4.0,
+          "duration_s": 5.561,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.577,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 100,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 600,
+          "max_reward": 1.0,
+          "duration_s": 9.732,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 100,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 129
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 9.886,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 150,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 551
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": true,
+          "steps": 465,
+          "max_reward": 4.0,
+          "duration_s": 7.848,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.793,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 168,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 317,
+          "max_reward": 4.0,
+          "duration_s": 5.795,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 147
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": true,
+          "steps": 307,
+          "max_reward": 4.0,
+          "duration_s": 5.284,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 142
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 11.256,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 144,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 153
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": true,
+          "steps": 359,
+          "max_reward": 4.0,
+          "duration_s": 6.842,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": true,
+          "steps": 333,
+          "max_reward": 4.0,
+          "duration_s": 6.486,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 144
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 305,
+          "max_reward": 4.0,
+          "duration_s": 5.972,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 152
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.904,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 179,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 187
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": true,
+          "steps": 309,
+          "max_reward": 4.0,
+          "duration_s": 5.594,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 318,
+          "max_reward": 4.0,
+          "duration_s": 6.307,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": true,
+          "steps": 356,
+          "max_reward": 4.0,
+          "duration_s": 6.761,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": true,
+          "steps": 288,
+          "max_reward": 4.0,
+          "duration_s": 4.965,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 124
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.725,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 166,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 220
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 314,
+          "max_reward": 4.0,
+          "duration_s": 5.901,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 289,
+          "max_reward": 4.0,
+          "duration_s": 5.117,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 131
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.29,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 158,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 170
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.223,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 140,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 163
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 10.713,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 144,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 151
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": true,
+          "steps": 326,
+          "max_reward": 4.0,
+          "duration_s": 6.226,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 151
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_10/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "latency-longer-limit@5",
+      "scenario": "latency-longer-limit",
+      "label": "latency-longer-limit \u00b7 steps=5",
+      "description": "The same delays with half as much time again to finish. If success recovers here, the failures under delay were slow episodes, not failed manipulation.\n",
+      "env": "aloha/transfer_cube",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 5,
+      "tags": [
+        "timing",
+        "control"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 5
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency(steps=5)"
+      ],
+      "fingerprint": "d350b7e15cf8e356",
+      "episodes": 50,
+      "successes": 34,
+      "success_rate": 0.68,
+      "ci_low": 0.5418970269214489,
+      "ci_high": 0.7924178373915169,
+      "mean_steps_success": 303.5882352941176,
+      "contacts": {
+        "gripper:table": 26
+      },
+      "failure_labels": {
+        "lifted the cube but the left gripper never reached it": 11,
+        "touched the cube but did not lift it": 4,
+        "right gripper never touched the cube": 1
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": true,
+        "1002": true,
+        "1003": true,
+        "1004": true,
+        "1005": true,
+        "1006": true,
+        "1007": true,
+        "1008": false,
+        "1009": false,
+        "1010": false,
+        "1011": false,
+        "1012": true,
+        "1013": false,
+        "1014": true,
+        "1015": false,
+        "1016": true,
+        "1017": true,
+        "1018": true,
+        "1019": false,
+        "1020": false,
+        "1021": true,
+        "1022": true,
+        "1023": true,
+        "1024": false,
+        "1025": true,
+        "1026": false,
+        "1027": true,
+        "1028": false,
+        "1029": false,
+        "1030": false,
+        "1031": false,
+        "1032": true,
+        "1033": true,
+        "1034": true,
+        "1035": true,
+        "1036": true,
+        "1037": true,
+        "1038": true,
+        "1039": true,
+        "1040": true,
+        "1041": true,
+        "1042": true,
+        "1043": true,
+        "1044": true,
+        "1045": true,
+        "1046": false,
+        "1047": true,
+        "1048": true,
+        "1049": true
+      },
+      "duration_s": 601.96,
+      "scenario_source": "version: 1\nname: latency-longer-limit\ndescription: >\n  The same delays with half as much time again to finish. If success recovers\n  here, the failures under delay were slow episodes, not failed manipulation.\nenv: aloha/transfer_cube\nepisodes: 50\nseed: 1000\nmax_steps: 600\nsweep:\n  name: steps\n  values: [5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing, control]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 13.881,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 135,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_5/1000.mp4",
+          "trace": "episodes/latency-longer-limit_5/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": true,
+          "steps": 246,
+          "max_reward": 4.0,
+          "duration_s": 5.346,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 148
+          },
+          "video": "episodes/latency-longer-limit_5/1001.mp4",
+          "trace": "episodes/latency-longer-limit_5/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": true,
+          "steps": 278,
+          "max_reward": 4.0,
+          "duration_s": 6.162,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": true,
+          "steps": 331,
+          "max_reward": 4.0,
+          "duration_s": 7.367,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 150
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": true,
+          "steps": 316,
+          "max_reward": 4.0,
+          "duration_s": 6.759,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": true,
+          "steps": 307,
+          "max_reward": 4.0,
+          "duration_s": 6.394,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 153
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": true,
+          "steps": 294,
+          "max_reward": 4.0,
+          "duration_s": 5.974,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 118
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": true,
+          "steps": 290,
+          "max_reward": 4.0,
+          "duration_s": 5.895,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.647,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 158,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_5/1008.mp4",
+          "trace": "episodes/latency-longer-limit_5/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": false,
+          "steps": 600,
+          "max_reward": 1.0,
+          "duration_s": 13.85,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 136,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 134
+          },
+          "video": "episodes/latency-longer-limit_5/1009.mp4",
+          "trace": "episodes/latency-longer-limit_5/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 600,
+          "max_reward": 1.0,
+          "duration_s": 13.649,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 137,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_5/1010.mp4",
+          "trace": "episodes/latency-longer-limit_5/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 14.157,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 136,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": "episodes/latency-longer-limit_5/1011.mp4",
+          "trace": "episodes/latency-longer-limit_5/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": true,
+          "steps": 319,
+          "max_reward": 4.0,
+          "duration_s": 7.507,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 600,
+          "max_reward": 1.0,
+          "duration_s": 12.871,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 148,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency-longer-limit_5/1013.mp4",
+          "trace": "episodes/latency-longer-limit_5/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": true,
+          "steps": 310,
+          "max_reward": 4.0,
+          "duration_s": 7.076,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": false,
+          "steps": 600,
+          "max_reward": 0.0,
+          "duration_s": 12.871,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 123,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": "episodes/latency-longer-limit_5/1015.mp4",
+          "trace": "episodes/latency-longer-limit_5/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 279,
+          "max_reward": 4.0,
+          "duration_s": 6.478,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": true,
+          "steps": 316,
+          "max_reward": 4.0,
+          "duration_s": 6.688,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": true,
+          "steps": 324,
+          "max_reward": 4.0,
+          "duration_s": 6.896,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 13.546,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 124,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": "episodes/latency-longer-limit_5/1019.mp4",
+          "trace": "episodes/latency-longer-limit_5/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 13.651,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 115,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": true,
+          "steps": 303,
+          "max_reward": 4.0,
+          "duration_s": 6.476,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 144
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": true,
+          "steps": 315,
+          "max_reward": 4.0,
+          "duration_s": 6.605,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": true,
+          "steps": 298,
+          "max_reward": 4.0,
+          "duration_s": 6.72,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.526,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 185,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 183
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": true,
+          "steps": 289,
+          "max_reward": 4.0,
+          "duration_s": 6.354,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": false,
+          "steps": 600,
+          "max_reward": 1.0,
+          "duration_s": 13.054,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 136,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 143
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": true,
+          "steps": 295,
+          "max_reward": 4.0,
+          "duration_s": 6.157,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.461,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 133,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.681,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 150,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 584
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.783,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 126,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.767,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 168,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 296,
+          "max_reward": 4.0,
+          "duration_s": 6.092,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 141
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": true,
+          "steps": 294,
+          "max_reward": 4.0,
+          "duration_s": 6.122,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 132
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": true,
+          "steps": 323,
+          "max_reward": 4.0,
+          "duration_s": 6.762,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 143
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": true,
+          "steps": 335,
+          "max_reward": 4.0,
+          "duration_s": 6.856,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": true,
+          "steps": 303,
+          "max_reward": 4.0,
+          "duration_s": 6.563,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 133
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 271,
+          "max_reward": 4.0,
+          "duration_s": 5.857,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": true,
+          "steps": 339,
+          "max_reward": 4.0,
+          "duration_s": 7.481,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 175
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": true,
+          "steps": 296,
+          "max_reward": 4.0,
+          "duration_s": 6.177,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 303,
+          "max_reward": 4.0,
+          "duration_s": 6.334,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": true,
+          "steps": 344,
+          "max_reward": 4.0,
+          "duration_s": 7.216,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": true,
+          "steps": 275,
+          "max_reward": 4.0,
+          "duration_s": 5.768,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 106
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": true,
+          "steps": 338,
+          "max_reward": 4.0,
+          "duration_s": 7.078,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 294,
+          "max_reward": 4.0,
+          "duration_s": 6.248,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 274,
+          "max_reward": 4.0,
+          "duration_s": 5.727,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 119
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 600,
+          "max_reward": 2.0,
+          "duration_s": 12.557,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 158,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 154
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": true,
+          "steps": 310,
+          "max_reward": 4.0,
+          "duration_s": 6.451,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 150
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": true,
+          "steps": 315,
+          "max_reward": 4.0,
+          "duration_s": 6.453,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 139
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": true,
+          "steps": 302,
+          "max_reward": 4.0,
+          "duration_s": 6.256,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 140
+          },
+          "video": null,
+          "trace": "episodes/latency-longer-limit_5/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "latency@10",
+      "scenario": "latency",
+      "label": "latency \u00b7 steps=10",
+      "description": "Actions reach the robot late, as when inference or the network adds delay. One step is 20 ms.",
+      "env": "aloha/transfer_cube",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 10,
+      "tags": [
+        "timing"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 10
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency(steps=10)"
+      ],
+      "fingerprint": "c66e1c64b4ae87c2",
+      "episodes": 50,
+      "successes": 24,
+      "success_rate": 0.48,
+      "ci_low": 0.3479713528682593,
+      "ci_high": 0.6148825510969667,
+      "mean_steps_success": 326.7083333333333,
+      "contacts": {
+        "gripper:table": 33
+      },
+      "failure_labels": {
+        "lifted the cube but the left gripper never reached it": 21,
+        "right gripper never touched the cube": 2,
+        "touched the cube but did not lift it": 3
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": true,
+        "1002": true,
+        "1003": false,
+        "1004": false,
+        "1005": false,
+        "1006": true,
+        "1007": false,
+        "1008": true,
+        "1009": false,
+        "1010": false,
+        "1011": true,
+        "1012": false,
+        "1013": false,
+        "1014": true,
+        "1015": false,
+        "1016": true,
+        "1017": false,
+        "1018": true,
+        "1019": false,
+        "1020": true,
+        "1021": true,
+        "1022": false,
+        "1023": false,
+        "1024": false,
+        "1025": true,
+        "1026": true,
+        "1027": false,
+        "1028": false,
+        "1029": false,
+        "1030": false,
+        "1031": false,
+        "1032": true,
+        "1033": true,
+        "1034": false,
+        "1035": true,
+        "1036": true,
+        "1037": true,
+        "1038": false,
+        "1039": true,
+        "1040": true,
+        "1041": true,
+        "1042": true,
+        "1043": false,
+        "1044": true,
+        "1045": true,
+        "1046": false,
+        "1047": false,
+        "1048": false,
+        "1049": true
+      },
+      "duration_s": 381.0,
+      "scenario_source": "version: 1\nname: latency\ndescription: Actions reach the robot late, as when inference or the network adds delay. One step is 20 ms.\nenv: aloha/transfer_cube\nepisodes: 50\nseed: 1000\nsweep:\n  name: steps\n  values: [2, 5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 9.222,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 141,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_10/1000.mp4",
+          "trace": "episodes/latency_10/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": true,
+          "steps": 361,
+          "max_reward": 4.0,
+          "duration_s": 7.129,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 213
+          },
+          "video": "episodes/latency_10/1001.mp4",
+          "trace": "episodes/latency_10/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": true,
+          "steps": 328,
+          "max_reward": 4.0,
+          "duration_s": 6.648,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.824,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 146,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 172
+          },
+          "video": "episodes/latency_10/1003.mp4",
+          "trace": "episodes/latency_10/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.083,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 152,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency_10/1004.mp4",
+          "trace": "episodes/latency_10/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.468,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 149,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 164
+          },
+          "video": "episodes/latency_10/1005.mp4",
+          "trace": "episodes/latency_10/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": true,
+          "steps": 307,
+          "max_reward": 4.0,
+          "duration_s": 6.562,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.117,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 116,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency_10/1007.mp4",
+          "trace": "episodes/latency_10/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": true,
+          "steps": 383,
+          "max_reward": 4.0,
+          "duration_s": 8.115,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.75,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 136,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": "episodes/latency_10/1009.mp4",
+          "trace": "episodes/latency_10/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.305,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 175,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_10/1010.mp4",
+          "trace": "episodes/latency_10/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": true,
+          "steps": 345,
+          "max_reward": 4.0,
+          "duration_s": 7.376,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 149
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.242,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 153,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": "episodes/latency_10/1012.mp4",
+          "trace": "episodes/latency_10/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.948,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 148,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 268
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": true,
+          "steps": 324,
+          "max_reward": 4.0,
+          "duration_s": 6.087,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.723,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 123,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 388,
+          "max_reward": 4.0,
+          "duration_s": 7.909,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 210
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.797,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 153,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": true,
+          "steps": 355,
+          "max_reward": 4.0,
+          "duration_s": 6.73,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.848,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 124,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": true,
+          "steps": 310,
+          "max_reward": 4.0,
+          "duration_s": 6.668,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 128
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": true,
+          "steps": 287,
+          "max_reward": 4.0,
+          "duration_s": 6.111,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 150
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.283,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 148,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.312,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 100,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 310
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.151,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 185,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 190
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": true,
+          "steps": 304,
+          "max_reward": 4.0,
+          "duration_s": 6.498,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": true,
+          "steps": 324,
+          "max_reward": 4.0,
+          "duration_s": 6.876,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.318,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 100,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.259,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 100,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 129
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.109,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 150,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.233,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 126,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.028,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 168,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 317,
+          "max_reward": 4.0,
+          "duration_s": 6.544,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 147
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": true,
+          "steps": 307,
+          "max_reward": 4.0,
+          "duration_s": 6.209,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 142
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.792,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 144,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 153
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": true,
+          "steps": 359,
+          "max_reward": 4.0,
+          "duration_s": 7.425,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": true,
+          "steps": 334,
+          "max_reward": 4.0,
+          "duration_s": 6.677,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 144
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 305,
+          "max_reward": 4.0,
+          "duration_s": 6.141,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 152
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.102,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 179,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 187
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": true,
+          "steps": 308,
+          "max_reward": 4.0,
+          "duration_s": 6.218,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 318,
+          "max_reward": 4.0,
+          "duration_s": 6.34,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": true,
+          "steps": 356,
+          "max_reward": 4.0,
+          "duration_s": 7.199,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": true,
+          "steps": 289,
+          "max_reward": 4.0,
+          "duration_s": 5.822,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 124
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.347,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 166,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 221
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 314,
+          "max_reward": 4.0,
+          "duration_s": 6.494,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 289,
+          "max_reward": 4.0,
+          "duration_s": 5.961,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 131
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.218,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 158,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 170
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.77,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 140,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 163
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.447,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 144,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 151
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": true,
+          "steps": 329,
+          "max_reward": 4.0,
+          "duration_s": 6.934,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 151
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "latency@2",
+      "scenario": "latency",
+      "label": "latency \u00b7 steps=2",
+      "description": "Actions reach the robot late, as when inference or the network adds delay. One step is 20 ms.",
+      "env": "aloha/transfer_cube",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 2,
+      "tags": [
+        "timing"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 2
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency"
+      ],
+      "fingerprint": "c1f9f293235f9b80",
+      "episodes": 50,
+      "successes": 34,
+      "success_rate": 0.68,
+      "ci_low": 0.5418970269214489,
+      "ci_high": 0.7924178373915169,
+      "mean_steps_success": 296.79411764705884,
+      "contacts": {
+        "gripper:table": 28
+      },
+      "failure_labels": {
+        "lifted the cube but the left gripper never reached it": 11,
+        "touched the cube but did not lift it": 3,
+        "right gripper never touched the cube": 2
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": true,
+        "1002": true,
+        "1003": true,
+        "1004": true,
+        "1005": false,
+        "1006": true,
+        "1007": true,
+        "1008": true,
+        "1009": false,
+        "1010": false,
+        "1011": false,
+        "1012": true,
+        "1013": false,
+        "1014": true,
+        "1015": false,
+        "1016": true,
+        "1017": true,
+        "1018": true,
+        "1019": false,
+        "1020": false,
+        "1021": true,
+        "1022": true,
+        "1023": true,
+        "1024": false,
+        "1025": true,
+        "1026": false,
+        "1027": true,
+        "1028": false,
+        "1029": true,
+        "1030": false,
+        "1031": true,
+        "1032": true,
+        "1033": true,
+        "1034": true,
+        "1035": true,
+        "1036": true,
+        "1037": true,
+        "1038": false,
+        "1039": true,
+        "1040": true,
+        "1041": true,
+        "1042": true,
+        "1043": false,
+        "1044": true,
+        "1045": true,
+        "1046": false,
+        "1047": true,
+        "1048": true,
+        "1049": true
+      },
+      "duration_s": 308.03,
+      "scenario_source": "version: 1\nname: latency\ndescription: Actions reach the robot late, as when inference or the network adds delay. One step is 20 ms.\nenv: aloha/transfer_cube\nepisodes: 50\nseed: 1000\nsweep:\n  name: steps\n  values: [2, 5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.123,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 137,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_2/1000.mp4",
+          "trace": "episodes/latency_2/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": true,
+          "steps": 241,
+          "max_reward": 4.0,
+          "duration_s": 4.343,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 139
+          },
+          "video": "episodes/latency_2/1001.mp4",
+          "trace": "episodes/latency_2/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": true,
+          "steps": 270,
+          "max_reward": 4.0,
+          "duration_s": 4.854,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": true,
+          "steps": 333,
+          "max_reward": 4.0,
+          "duration_s": 5.801,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 140
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": true,
+          "steps": 328,
+          "max_reward": 4.0,
+          "duration_s": 5.789,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.056,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 149,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 145
+          },
+          "video": "episodes/latency_2/1005.mp4",
+          "trace": "episodes/latency_2/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": true,
+          "steps": 283,
+          "max_reward": 4.0,
+          "duration_s": 5.163,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": true,
+          "steps": 276,
+          "max_reward": 4.0,
+          "duration_s": 4.913,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": true,
+          "steps": 312,
+          "max_reward": 4.0,
+          "duration_s": 5.855,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.076,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 125,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": "episodes/latency_2/1009.mp4",
+          "trace": "episodes/latency_2/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.539,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 139,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_2/1010.mp4",
+          "trace": "episodes/latency_2/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.674,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 137,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 128
+          },
+          "video": "episodes/latency_2/1011.mp4",
+          "trace": "episodes/latency_2/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": true,
+          "steps": 314,
+          "max_reward": 4.0,
+          "duration_s": 5.937,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.156,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 150,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_2/1013.mp4",
+          "trace": "episodes/latency_2/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": true,
+          "steps": 294,
+          "max_reward": 4.0,
+          "duration_s": 5.333,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 7.133,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 200,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 112
+          },
+          "video": "episodes/latency_2/1015.mp4",
+          "trace": "episodes/latency_2/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 292,
+          "max_reward": 4.0,
+          "duration_s": 5.537,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 139
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": true,
+          "steps": 310,
+          "max_reward": 4.0,
+          "duration_s": 5.914,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": true,
+          "steps": 317,
+          "max_reward": 4.0,
+          "duration_s": 5.983,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.064,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 126,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 112
+          },
+          "video": "episodes/latency_2/1019.mp4",
+          "trace": "episodes/latency_2/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.424,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 117,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 108
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": true,
+          "steps": 302,
+          "max_reward": 4.0,
+          "duration_s": 5.486,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 143
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": true,
+          "steps": 309,
+          "max_reward": 4.0,
+          "duration_s": 5.667,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": true,
+          "steps": 293,
+          "max_reward": 4.0,
+          "duration_s": 5.523,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.631,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 200,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 177
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": true,
+          "steps": 277,
+          "max_reward": 4.0,
+          "duration_s": 4.969,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 6.788,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 137,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": true,
+          "steps": 293,
+          "max_reward": 4.0,
+          "duration_s": 5.546,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 134
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.338,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 145,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": true,
+          "steps": 300,
+          "max_reward": 4.0,
+          "duration_s": 5.898,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.48,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 128,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": true,
+          "steps": 396,
+          "max_reward": 4.0,
+          "duration_s": 7.264,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 284,
+          "max_reward": 4.0,
+          "duration_s": 5.493,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 131
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": true,
+          "steps": 288,
+          "max_reward": 4.0,
+          "duration_s": 5.107,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 126
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": true,
+          "steps": 302,
+          "max_reward": 4.0,
+          "duration_s": 5.717,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": true,
+          "steps": 319,
+          "max_reward": 4.0,
+          "duration_s": 6.192,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": true,
+          "steps": 293,
+          "max_reward": 4.0,
+          "duration_s": 5.514,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 265,
+          "max_reward": 4.0,
+          "duration_s": 4.746,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 130
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.662,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 178,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 169
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": true,
+          "steps": 283,
+          "max_reward": 4.0,
+          "duration_s": 5.049,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 293,
+          "max_reward": 4.0,
+          "duration_s": 5.378,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": true,
+          "steps": 328,
+          "max_reward": 4.0,
+          "duration_s": 5.787,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": true,
+          "steps": 258,
+          "max_reward": 4.0,
+          "duration_s": 4.847,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 102
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.395,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 166,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 280,
+          "max_reward": 4.0,
+          "duration_s": 5.486,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 264,
+          "max_reward": 4.0,
+          "duration_s": 5.075,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 110
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.976,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 158,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 147
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": true,
+          "steps": 297,
+          "max_reward": 4.0,
+          "duration_s": 5.425,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 140
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": true,
+          "steps": 298,
+          "max_reward": 4.0,
+          "duration_s": 5.591,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 134
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": true,
+          "steps": 299,
+          "max_reward": 4.0,
+          "duration_s": 5.711,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 136
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "latency@5",
+      "scenario": "latency",
+      "label": "latency \u00b7 steps=5",
+      "description": "Actions reach the robot late, as when inference or the network adds delay. One step is 20 ms.",
+      "env": "aloha/transfer_cube",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 5,
+      "tags": [
+        "timing"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 5
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency(steps=5)"
+      ],
+      "fingerprint": "6278ddc38aaedbcb",
+      "episodes": 50,
+      "successes": 34,
+      "success_rate": 0.68,
+      "ci_low": 0.5418970269214489,
+      "ci_high": 0.7924178373915169,
+      "mean_steps_success": 303.7647058823529,
+      "contacts": {
+        "gripper:table": 25
+      },
+      "failure_labels": {
+        "touched the cube but did not lift it": 7,
+        "lifted the cube but the left gripper never reached it": 7,
+        "right gripper never touched the cube": 2
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": true,
+        "1002": true,
+        "1003": true,
+        "1004": true,
+        "1005": true,
+        "1006": true,
+        "1007": true,
+        "1008": false,
+        "1009": false,
+        "1010": false,
+        "1011": false,
+        "1012": true,
+        "1013": false,
+        "1014": true,
+        "1015": false,
+        "1016": true,
+        "1017": true,
+        "1018": true,
+        "1019": false,
+        "1020": false,
+        "1021": true,
+        "1022": true,
+        "1023": true,
+        "1024": false,
+        "1025": true,
+        "1026": false,
+        "1027": true,
+        "1028": false,
+        "1029": false,
+        "1030": false,
+        "1031": false,
+        "1032": true,
+        "1033": true,
+        "1034": true,
+        "1035": true,
+        "1036": true,
+        "1037": true,
+        "1038": true,
+        "1039": true,
+        "1040": true,
+        "1041": true,
+        "1042": true,
+        "1043": true,
+        "1044": true,
+        "1045": true,
+        "1046": false,
+        "1047": true,
+        "1048": true,
+        "1049": true
+      },
+      "duration_s": 297.24,
+      "scenario_source": "version: 1\nname: latency\ndescription: Actions reach the robot late, as when inference or the network adds delay. One step is 20 ms.\nenv: aloha/transfer_cube\nepisodes: 50\nseed: 1000\nsweep:\n  name: steps\n  values: [2, 5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.698,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 135,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_5/1000.mp4",
+          "trace": "episodes/latency_5/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": true,
+          "steps": 250,
+          "max_reward": 4.0,
+          "duration_s": 4.74,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 148
+          },
+          "video": "episodes/latency_5/1001.mp4",
+          "trace": "episodes/latency_5/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": true,
+          "steps": 277,
+          "max_reward": 4.0,
+          "duration_s": 4.721,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": true,
+          "steps": 330,
+          "max_reward": 4.0,
+          "duration_s": 6.266,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 149
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": true,
+          "steps": 318,
+          "max_reward": 4.0,
+          "duration_s": 5.476,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": true,
+          "steps": 307,
+          "max_reward": 4.0,
+          "duration_s": 5.127,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 153
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": true,
+          "steps": 292,
+          "max_reward": 4.0,
+          "duration_s": 4.832,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 118
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": true,
+          "steps": 290,
+          "max_reward": 4.0,
+          "duration_s": 5.014,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.042,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 158,
+          "nominal_success": true,
+          "contacts": {},
+          "video": "episodes/latency_5/1008.mp4",
+          "trace": "episodes/latency_5/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 6.881,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 136,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": "episodes/latency_5/1009.mp4",
+          "trace": "episodes/latency_5/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 6.626,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 137,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_5/1010.mp4",
+          "trace": "episodes/latency_5/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.934,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 136,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": "episodes/latency_5/1011.mp4",
+          "trace": "episodes/latency_5/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": true,
+          "steps": 322,
+          "max_reward": 4.0,
+          "duration_s": 5.324,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 6.612,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 148,
+          "nominal_success": false,
+          "contacts": {},
+          "video": "episodes/latency_5/1013.mp4",
+          "trace": "episodes/latency_5/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": true,
+          "steps": 311,
+          "max_reward": 4.0,
+          "duration_s": 5.591,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 6.802,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 123,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": "episodes/latency_5/1015.mp4",
+          "trace": "episodes/latency_5/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 281,
+          "max_reward": 4.0,
+          "duration_s": 5.128,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": true,
+          "steps": 317,
+          "max_reward": 4.0,
+          "duration_s": 5.599,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": true,
+          "steps": 327,
+          "max_reward": 4.0,
+          "duration_s": 6.105,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.979,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 124,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": "episodes/latency_5/1019.mp4",
+          "trace": "episodes/latency_5/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.673,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 115,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": true,
+          "steps": 302,
+          "max_reward": 4.0,
+          "duration_s": 5.086,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 144
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": true,
+          "steps": 311,
+          "max_reward": 4.0,
+          "duration_s": 5.34,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": true,
+          "steps": 299,
+          "max_reward": 4.0,
+          "duration_s": 5.029,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.717,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 185,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 183
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": true,
+          "steps": 288,
+          "max_reward": 4.0,
+          "duration_s": 4.97,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 6.799,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": 136,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 143
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": true,
+          "steps": 295,
+          "max_reward": 4.0,
+          "duration_s": 4.933,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 6.833,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 133,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.415,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 150,
+          "nominal_success": true,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.177,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 126,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.24,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": 168,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 295,
+          "max_reward": 4.0,
+          "duration_s": 5.277,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 141
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": true,
+          "steps": 294,
+          "max_reward": 4.0,
+          "duration_s": 5.38,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 132
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": true,
+          "steps": 325,
+          "max_reward": 4.0,
+          "duration_s": 5.872,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 143
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": true,
+          "steps": 335,
+          "max_reward": 4.0,
+          "duration_s": 6.04,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": true,
+          "steps": 303,
+          "max_reward": 4.0,
+          "duration_s": 5.552,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 133
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 278,
+          "max_reward": 4.0,
+          "duration_s": 5.105,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 137
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": true,
+          "steps": 342,
+          "max_reward": 4.0,
+          "duration_s": 6.302,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 175
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": true,
+          "steps": 296,
+          "max_reward": 4.0,
+          "duration_s": 5.485,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 302,
+          "max_reward": 4.0,
+          "duration_s": 4.936,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": true,
+          "steps": 337,
+          "max_reward": 4.0,
+          "duration_s": 5.524,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": true,
+          "steps": 273,
+          "max_reward": 4.0,
+          "duration_s": 4.255,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 106
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": true,
+          "steps": 336,
+          "max_reward": 4.0,
+          "duration_s": 5.199,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 294,
+          "max_reward": 4.0,
+          "duration_s": 4.706,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 274,
+          "max_reward": 4.0,
+          "duration_s": 4.412,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 119
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.311,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": 158,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 154
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": true,
+          "steps": 310,
+          "max_reward": 4.0,
+          "duration_s": 5.094,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 150
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": true,
+          "steps": 314,
+          "max_reward": 4.0,
+          "duration_s": 5.29,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 139
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": true,
+          "steps": 303,
+          "max_reward": 4.0,
+          "duration_s": 5.018,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 140
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "nominal",
+      "scenario": "nominal",
+      "label": "nominal",
+      "description": "No delay. Every other scenario is read against this one.",
+      "env": "aloha/transfer_cube",
+      "backend": "mujoco",
+      "sweep_name": null,
+      "sweep_value": null,
+      "tags": [
+        "baseline"
+      ],
+      "perturbations": [],
+      "perturbation_summary": [],
+      "fingerprint": "88bb6ac536325317",
+      "episodes": 50,
+      "successes": 35,
+      "success_rate": 0.7,
+      "ci_low": 0.5624964953583776,
+      "ci_high": 0.808964464989362,
+      "mean_steps_success": 291.1142857142857,
+      "contacts": {
+        "gripper:table": 27
+      },
+      "failure_labels": {
+        "touched the cube but did not lift it": 4,
+        "lifted the cube but the left gripper never reached it": 10,
+        "right gripper never touched the cube": 1
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": true,
+        "1002": true,
+        "1003": true,
+        "1004": true,
+        "1005": false,
+        "1006": true,
+        "1007": true,
+        "1008": true,
+        "1009": true,
+        "1010": false,
+        "1011": false,
+        "1012": true,
+        "1013": false,
+        "1014": true,
+        "1015": false,
+        "1016": true,
+        "1017": true,
+        "1018": true,
+        "1019": false,
+        "1020": false,
+        "1021": true,
+        "1022": true,
+        "1023": true,
+        "1024": false,
+        "1025": true,
+        "1026": false,
+        "1027": true,
+        "1028": false,
+        "1029": true,
+        "1030": false,
+        "1031": false,
+        "1032": true,
+        "1033": true,
+        "1034": true,
+        "1035": true,
+        "1036": true,
+        "1037": true,
+        "1038": true,
+        "1039": true,
+        "1040": true,
+        "1041": true,
+        "1042": true,
+        "1043": false,
+        "1044": true,
+        "1045": true,
+        "1046": false,
+        "1047": true,
+        "1048": true,
+        "1049": true
+      },
+      "duration_s": 282.42,
+      "scenario_source": "version: 1\nname: nominal\ndescription: No delay. Every other scenario is read against this one.\nenv: aloha/transfer_cube\nepisodes: 50\nseed: 1000\ntags: [baseline]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.478,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": "episodes/nominal/1000.mp4",
+          "trace": "episodes/nominal/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": true,
+          "steps": 231,
+          "max_reward": 4.0,
+          "duration_s": 3.686,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 130
+          },
+          "video": "episodes/nominal/1001.mp4",
+          "trace": "episodes/nominal/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": true,
+          "steps": 272,
+          "max_reward": 4.0,
+          "duration_s": 4.189,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": true,
+          "steps": 316,
+          "max_reward": 4.0,
+          "duration_s": 4.964,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 136
+          },
+          "video": null,
+          "trace": "episodes/nominal/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": true,
+          "steps": 305,
+          "max_reward": 4.0,
+          "duration_s": 4.983,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 6.402,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": "episodes/nominal/1005.mp4",
+          "trace": "episodes/nominal/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": true,
+          "steps": 279,
+          "max_reward": 4.0,
+          "duration_s": 4.59,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 105
+          },
+          "video": null,
+          "trace": "episodes/nominal/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": true,
+          "steps": 278,
+          "max_reward": 4.0,
+          "duration_s": 4.469,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": true,
+          "steps": 273,
+          "max_reward": 4.0,
+          "duration_s": 4.297,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": true,
+          "steps": 398,
+          "max_reward": 4.0,
+          "duration_s": 6.355,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 121
+          },
+          "video": null,
+          "trace": "episodes/nominal/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.535,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": "episodes/nominal/1010.mp4",
+          "trace": "episodes/nominal/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.368,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 124
+          },
+          "video": "episodes/nominal/1011.mp4",
+          "trace": "episodes/nominal/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": true,
+          "steps": 315,
+          "max_reward": 4.0,
+          "duration_s": 5.172,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.405,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": "episodes/nominal/1013.mp4",
+          "trace": "episodes/nominal/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": true,
+          "steps": 287,
+          "max_reward": 4.0,
+          "duration_s": 4.679,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.461,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": "episodes/nominal/1015.mp4",
+          "trace": "episodes/nominal/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 278,
+          "max_reward": 4.0,
+          "duration_s": 4.752,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/nominal/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": true,
+          "steps": 309,
+          "max_reward": 4.0,
+          "duration_s": 5.232,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": true,
+          "steps": 313,
+          "max_reward": 4.0,
+          "duration_s": 5.328,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.417,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 106
+          },
+          "video": "episodes/nominal/1019.mp4",
+          "trace": "episodes/nominal/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.174,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 104
+          },
+          "video": "episodes/nominal/1020.mp4",
+          "trace": "episodes/nominal/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": true,
+          "steps": 296,
+          "max_reward": 4.0,
+          "duration_s": 5.434,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 142
+          },
+          "video": null,
+          "trace": "episodes/nominal/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": true,
+          "steps": 298,
+          "max_reward": 4.0,
+          "duration_s": 5.353,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": true,
+          "steps": 291,
+          "max_reward": 4.0,
+          "duration_s": 5.268,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/nominal/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.093,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 175
+          },
+          "video": null,
+          "trace": "episodes/nominal/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": true,
+          "steps": 274,
+          "max_reward": 4.0,
+          "duration_s": 4.915,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 112
+          },
+          "video": null,
+          "trace": "episodes/nominal/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 6.986,
+          "failure_label": "right gripper never touched the cube",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 131
+          },
+          "video": null,
+          "trace": "episodes/nominal/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": true,
+          "steps": 286,
+          "max_reward": 4.0,
+          "duration_s": 5.428,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 129
+          },
+          "video": null,
+          "trace": "episodes/nominal/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.238,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": true,
+          "steps": 286,
+          "max_reward": 4.0,
+          "duration_s": 5.21,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.122,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.163,
+          "failure_label": "touched the cube but did not lift it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 259,
+          "max_reward": 4.0,
+          "duration_s": 4.757,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 128
+          },
+          "video": null,
+          "trace": "episodes/nominal/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": true,
+          "steps": 283,
+          "max_reward": 4.0,
+          "duration_s": 5.137,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 123
+          },
+          "video": null,
+          "trace": "episodes/nominal/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": true,
+          "steps": 298,
+          "max_reward": 4.0,
+          "duration_s": 5.261,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 133
+          },
+          "video": null,
+          "trace": "episodes/nominal/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": true,
+          "steps": 318,
+          "max_reward": 4.0,
+          "duration_s": 5.723,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": true,
+          "steps": 288,
+          "max_reward": 4.0,
+          "duration_s": 5.238,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 124
+          },
+          "video": null,
+          "trace": "episodes/nominal/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 257,
+          "max_reward": 4.0,
+          "duration_s": 4.611,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 126
+          },
+          "video": null,
+          "trace": "episodes/nominal/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": true,
+          "steps": 333,
+          "max_reward": 4.0,
+          "duration_s": 6.026,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 170
+          },
+          "video": null,
+          "trace": "episodes/nominal/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": true,
+          "steps": 277,
+          "max_reward": 4.0,
+          "duration_s": 4.663,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 292,
+          "max_reward": 4.0,
+          "duration_s": 5.121,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": true,
+          "steps": 325,
+          "max_reward": 4.0,
+          "duration_s": 5.798,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": true,
+          "steps": 257,
+          "max_reward": 4.0,
+          "duration_s": 4.644,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 100
+          },
+          "video": null,
+          "trace": "episodes/nominal/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.259,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 276,
+          "max_reward": 4.0,
+          "duration_s": 5.096,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 258,
+          "max_reward": 4.0,
+          "duration_s": 4.539,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 102
+          },
+          "video": null,
+          "trace": "episodes/nominal/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 6.635,
+          "failure_label": "lifted the cube but the left gripper never reached it",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 143
+          },
+          "video": null,
+          "trace": "episodes/nominal/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": true,
+          "steps": 293,
+          "max_reward": 4.0,
+          "duration_s": 4.884,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 139
+          },
+          "video": null,
+          "trace": "episodes/nominal/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": true,
+          "steps": 295,
+          "max_reward": 4.0,
+          "duration_s": 5.154,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 132
+          },
+          "video": null,
+          "trace": "episodes/nominal/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": true,
+          "steps": 295,
+          "max_reward": 4.0,
+          "duration_s": 5.205,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 135
+          },
+          "video": null,
+          "trace": "episodes/nominal/1049.json",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+version: 1
+name: noise
+description: Sensor noise.
+env: aloha/transfer_cube
+episodes: 3
+max_steps: 30
+perturbations:
+  - image_noise: { std: 15 }
+assertions:
+  success_rate: { min: 0.9 }

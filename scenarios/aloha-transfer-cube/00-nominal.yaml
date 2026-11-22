@@ -1,0 +1,9 @@
+version: 1
+name: nominal
+description: The task exactly as the policy was trained on it. Every other scenario is read against this one.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+assertions:
+  success_rate: { min: 0.8 }
+tags: [baseline]

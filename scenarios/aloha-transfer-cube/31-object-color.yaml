@@ -1,0 +1,11 @@
+version: 1
+name: object-color
+description: A blue cube instead of the red one seen in training.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+perturbations:
+  - object_appearance: { color: [0.1, 0.3, 0.9] }
+assertions:
+  success_rate: { min: 0.6 }
+tags: [vision, distribution-shift]

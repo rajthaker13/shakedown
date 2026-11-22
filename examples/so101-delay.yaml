@@ -1,0 +1,23 @@
+# An experiment for a real SO-101: does skipping stale actions help under delay?
+#
+#   shakedown real run examples/so101-delay.yaml --port /dev/tty.usbmodemXXXX --camera top=0
+#   shakedown real analyze examples/so101-delay.yaml real-trials.jsonl
+#
+# Rehearse first, without the arm:
+#   shakedown real run examples/so101-delay.yaml --mock
+#
+# Replace the checkpoint with one you trained on your own arm and task.
+name: so101-delay
+task: Put the cube in the bin.
+trials_per_arm: 20
+max_seconds: 30
+seed: 1
+arms:
+  - label: no-delay
+    policy: "lerobot:YOUR_NAME/act_so101_cube?n_action_steps=50"
+  - label: delay-200ms
+    policy: "lerobot:YOUR_NAME/act_so101_cube?n_action_steps=50"
+    delay_ms: 200
+  - label: delay-200ms-compensated
+    policy: "lerobot:YOUR_NAME/act_so101_cube?n_action_steps=50&latency_compensation=auto"
+    delay_ms: 200

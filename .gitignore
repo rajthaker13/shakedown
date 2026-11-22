@@ -1,0 +1,66 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+build/
+dist/
+/engine/dist/
+*.egg-info/
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Secrets and local configuration (keep the examples)
+.env
+.env.*
+!.env.example
+.env.keys
+.demo-key
+*.pem
+*.key
+*.p12
+.modal.toml
+modal.toml
+credentials*.json
+service-account*.json
+
+# Local Supabase state
+supabase/.temp/
+supabase/.branches/
+supabase/volumes/
+
+# Model weights and large binaries (downloaded on demand from Hugging Face)
+engine/checkpoints/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+*.npz
+*.h5
+
+# Run output, videos and traces (small summaries live in results/)
+/runs/
+wandb/
+*.mp4
+*.mov
+*.webm
+*.gif
+*.avi
+
+# OS and editor
+.DS_Store
+.idea/
+.vscode/

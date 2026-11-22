@@ -1,0 +1,14 @@
+version: 1
+name: camera-shift
+description: The top camera is remounted a few centimeters from where it was during data collection.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+sweep:
+  name: dx
+  values: [1, 3]
+perturbations:
+  - camera_pose: { camera: top, translate_cm: ["${dx}", 0, 0] }
+assertions:
+  success_rate: { min: 0.6 }
+tags: [vision, camera]

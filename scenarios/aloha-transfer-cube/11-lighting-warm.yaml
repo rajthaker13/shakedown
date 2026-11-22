@@ -1,0 +1,11 @@
+version: 1
+name: lighting-warm
+description: Warm color cast, as from sodium or tungsten lighting instead of the neutral light used in training.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+perturbations:
+  - lighting: { tint: [1.0, 0.82, 0.62] }
+assertions:
+  success_rate: { min: 0.7 }
+tags: [vision, lighting]

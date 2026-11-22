@@ -1,0 +1,11 @@
+version: 1
+name: weak-actuators
+description: Softer position control, as from worn motors or a different arm of the same model.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+perturbations:
+  - actuator_gain: { scale: 0.5 }
+assertions:
+  success_rate: { min: 0.7 }
+tags: [physics, hardware]

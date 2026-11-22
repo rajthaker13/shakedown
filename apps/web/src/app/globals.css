@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Components use these names only, never Tailwind's default
+ * palette. Contrast ratios were checked against WCAG AA for every text and
+ * background pair in use; re-check if a value changes.
+ */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Surfaces, darkest to lightest. */
+  --color-inset: #070808;
+  --color-base: #0b0c0c;
+  --color-surface: #111313;
+  --color-raised: #181a1a;
+  --color-overlay: #1f2222;
+  --color-active: #272b2a;
+
+  --color-line-subtle: #1f2222;
+  --color-line: #2a2e2d;
+  --color-line-strong: #3d4241;
+  --color-line-control: #6e7572;
+
+  --color-fg: #eceeed;
+  --color-fg-secondary: #a8afac;
+  --color-fg-tertiary: #8b938f;
+  --color-fg-disabled: #565c5a;
+
+  /* Accent is for interaction only: primary action, focus, active nav, links. */
+  --color-accent: #c5f04a;
+  --color-accent-hover: #d3f56f;
+  --color-accent-active: #afda35;
+  --color-accent-subtle: #1a2108;
+  --color-accent-line: #3f5211;
+  --color-on-accent: #0b0c0c;
+
+  /* Status. Text on a solid status fill is always --color-on-accent. */
+  --color-pass: #1fd8a4;
+  --color-pass-solid: #29a383;
+  --color-pass-subtle: #0f2e22;
+  --color-pass-line: #246854;
+
+  --color-warn: #ffca16;
+  --color-warn-solid: #ffc53d;
+  --color-warn-subtle: #302008;
+  --color-warn-line: #714f19;
+
+  --color-fail: #ff977d;
+  --color-fail-solid: #e54d2e;
+  --color-fail-subtle: #391714;
+  --color-fail-line: #853a2d;
+
+  --color-info: #70b8ff;
+  --color-info-solid: #0090ff;
+  --color-info-subtle: #0d2847;
+  --color-info-line: #205d9e;
+
+  --color-running: #4ccce6;
+  --color-running-solid: #00a2c7;
+  --color-running-subtle: #082c36;
+  --color-running-line: #12677e;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-popover: 0 0 0 1px #2a2e2d, 0 4px 12px rgb(0 0 0 / 0.4), 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-dialog: 0 0 0 1px #3d4241, 0 16px 48px rgb(0 0 0 / 0.55), 0 2px 6px rgb(0 0 0 / 0.5);
+
+  --animate-spin-slow: spin 1.1s linear infinite;
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-color: var(--color-raised);
+  }
+  50% {
+    background-color: var(--color-overlay);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: var(--color-base);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: var(--color-accent-line);
+    color: var(--color-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-mono);
+    font-feature-settings: "zero";
+  }
+
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Thin scrollbars that match the surface. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility label-caps {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* A faint engineering grid, used behind the landing hero only. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}

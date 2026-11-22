@@ -1,0 +1,15 @@
+version: 1
+name: latency-longer-limit
+description: >
+  The same delays with half as much time again to finish. If success recovers
+  here, the failures under delay were slow episodes, not failed manipulation.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+max_steps: 600
+sweep:
+  name: steps
+  values: [5, 10]
+perturbations:
+  - action_latency: { steps: "${steps}" }
+tags: [timing, control]

@@ -1,0 +1,12 @@
+version: 1
+name: distractors
+description: Unrelated objects left on the work surface.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+perturbations:
+  - distractors: { count: 4, shape: mixed, layout_seed: 3 }
+assertions:
+  success_rate: { min: 0.6 }
+  no_contact: { between: robot, and: distractor, max_violation_rate: 0.1 }
+tags: [vision, clutter]

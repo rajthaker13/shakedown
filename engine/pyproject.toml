@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shakedown-ci"
+version = "0.1.0"
+description = "Regression testing for learned robot policies."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "pyyaml>=6",
+  "pydantic>=2.6",
+  "typer>=0.12",
+  "rich>=13",
+  "httpx>=0.27",
+  "imageio[ffmpeg]>=2.34",
+  "pillow>=10",
+]
+
+[project.optional-dependencies]
+mujoco = ["mujoco>=3.1", "dm_control>=1.0.20", "gymnasium>=1.0", "gym-aloha>=0.1.3"]
+pusht = ["gymnasium>=1.0", "gym-pusht>=0.1.5"]
+lerobot = ["lerobot[aloha,pusht]>=0.4"]
+server = ["fastapi>=0.110", "uvicorn>=0.29"]
+scan = ["trimesh>=4", "coacd>=1.0", "mujoco>=3.1"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+shakedown = "shakedown.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shakedown"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["sim: needs a simulator and a policy checkpoint (slow)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# Typer declares options as call expressions in argument defaults.
+ignore = ["B008", "B905", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Simulator tests skip themselves before importing what they need.
+"tests/*" = ["E402", "E731"]

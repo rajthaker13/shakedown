@@ -1,0 +1,14 @@
+version: 1
+name: camera-pan
+description: The top camera is rotated about its vertical axis, as after a knock to its mount.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+sweep:
+  name: pan
+  values: [1, 2, 4]
+perturbations:
+  - camera_pose: { camera: top, pan_deg: "${pan}" }
+assertions:
+  success_rate: { min: 0.6 }
+tags: [vision, camera]

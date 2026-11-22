@@ -1,0 +1,7 @@
+version: 1
+name: nominal
+description: No delay. Every other scenario is read against this one.
+env: pusht
+episodes: 50
+seed: 1000
+tags: [baseline]

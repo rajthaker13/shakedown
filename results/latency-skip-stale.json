@@ -1,0 +1,417 @@
+{
+  "title": "Skipping stale actions under control delay (ACT, ALOHA transfer-cube, MuJoCo)",
+  "metric": "task success rate; 95% Wilson interval; 50 seeded episodes per point (seed 1000)",
+  "delay_note": "one control step = 20 ms (scenarios/aloha-latency)",
+  "skip_stale_definition": "latency_compensation=auto: when actions arrive d steps late, drop the first d actions of each new action chunk",
+  "series": [
+    {
+      "job": "n25",
+      "run_id": "88c6b478-3b2f-462e-9108-82aa4fc34d1d",
+      "policy_spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human?n_action_steps=25",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "n_action_steps": 25,
+      "skip_stale": false,
+      "host": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "device": "cuda",
+      "started_at": "2026-09-28T09:47:16+00:00",
+      "points": [
+        {
+          "delay_steps": 0,
+          "delay_ms": 0,
+          "episodes": 50,
+          "successes": 38,
+          "success_rate": 0.76,
+          "ci95_low": 0.6258731624235248,
+          "ci95_high": 0.857026086028537
+        },
+        {
+          "delay_steps": 2,
+          "delay_ms": 40,
+          "episodes": 50,
+          "successes": 27,
+          "success_rate": 0.54,
+          "ci95_low": 0.4039887139942114,
+          "ci95_high": 0.6703034780753367
+        },
+        {
+          "delay_steps": 5,
+          "delay_ms": 100,
+          "episodes": 50,
+          "successes": 3,
+          "success_rate": 0.06,
+          "ci95_low": 0.020614970349389874,
+          "ci95_high": 0.16217091688558272
+        },
+        {
+          "delay_steps": 10,
+          "delay_ms": 200,
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.07134759913065064
+        }
+      ],
+      "longer_time_limit": [
+        {
+          "condition": "latency-longer-limit@10",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.07134759913065064
+        },
+        {
+          "condition": "latency-longer-limit@5",
+          "episodes": 50,
+          "successes": 20,
+          "success_rate": 0.4,
+          "ci95_low": 0.27608389730478905,
+          "ci95_high": 0.5381856225213411
+        }
+      ],
+      "source": "results/runs/latency/n25/result.json"
+    },
+    {
+      "job": "n25-comp",
+      "run_id": "afa546d6-2953-4521-bca4-48c713f2c5d9",
+      "policy_spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human?n_action_steps=25&latency_compensation=auto",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "n_action_steps": 25,
+      "skip_stale": true,
+      "host": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "device": "cuda",
+      "started_at": "2026-09-28T10:03:14+00:00",
+      "points": [
+        {
+          "delay_steps": 0,
+          "delay_ms": 0,
+          "episodes": 50,
+          "successes": 35,
+          "success_rate": 0.7,
+          "ci95_low": 0.5624964953583776,
+          "ci95_high": 0.808964464989362
+        },
+        {
+          "delay_steps": 2,
+          "delay_ms": 40,
+          "episodes": 50,
+          "successes": 36,
+          "success_rate": 0.72,
+          "ci95_low": 0.5833487630433644,
+          "ci95_high": 0.8252582933391494
+        },
+        {
+          "delay_steps": 5,
+          "delay_ms": 100,
+          "episodes": 50,
+          "successes": 26,
+          "success_rate": 0.52,
+          "ci95_low": 0.38511744890303334,
+          "ci95_high": 0.6520286471317407
+        },
+        {
+          "delay_steps": 10,
+          "delay_ms": 200,
+          "episodes": 50,
+          "successes": 19,
+          "success_rate": 0.38,
+          "ci95_low": 0.2586278931040875,
+          "ci95_high": 0.5184955306872686
+        }
+      ],
+      "longer_time_limit": [
+        {
+          "condition": "latency-longer-limit@10",
+          "episodes": 50,
+          "successes": 29,
+          "success_rate": 0.58,
+          "ci95_low": 0.442334417688508,
+          "ci95_high": 0.7062499664505879
+        },
+        {
+          "condition": "latency-longer-limit@5",
+          "episodes": 50,
+          "successes": 40,
+          "success_rate": 0.8,
+          "ci95_low": 0.6696289406807061,
+          "ci95_high": 0.8875624998409035
+        }
+      ],
+      "source": "results/runs/latency/n25-comp/result.json"
+    },
+    {
+      "job": "n50",
+      "run_id": "83f7b28c-215a-4d95-bb6d-300a6a2adbbc",
+      "policy_spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human?n_action_steps=50",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "n_action_steps": 50,
+      "skip_stale": false,
+      "host": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "device": "cuda",
+      "started_at": "2026-09-28T09:47:12+00:00",
+      "points": [
+        {
+          "delay_steps": 0,
+          "delay_ms": 0,
+          "episodes": 50,
+          "successes": 37,
+          "success_rate": 0.74,
+          "ci95_low": 0.6044684273544557,
+          "ci95_high": 0.841284725062832
+        },
+        {
+          "delay_steps": 2,
+          "delay_ms": 40,
+          "episodes": 50,
+          "successes": 35,
+          "success_rate": 0.7,
+          "ci95_low": 0.5624964953583776,
+          "ci95_high": 0.808964464989362
+        },
+        {
+          "delay_steps": 5,
+          "delay_ms": 100,
+          "episodes": 50,
+          "successes": 29,
+          "success_rate": 0.58,
+          "ci95_low": 0.442334417688508,
+          "ci95_high": 0.7062499664505879
+        },
+        {
+          "delay_steps": 10,
+          "delay_ms": 200,
+          "episodes": 50,
+          "successes": 12,
+          "success_rate": 0.24,
+          "ci95_low": 0.14297391397146308,
+          "ci95_high": 0.37412683757647525
+        }
+      ],
+      "longer_time_limit": [
+        {
+          "condition": "latency-longer-limit@10",
+          "episodes": 50,
+          "successes": 19,
+          "success_rate": 0.38,
+          "ci95_low": 0.2586278931040875,
+          "ci95_high": 0.5184955306872686
+        },
+        {
+          "condition": "latency-longer-limit@5",
+          "episodes": 50,
+          "successes": 32,
+          "success_rate": 0.64,
+          "ci95_low": 0.5014101687639614,
+          "ci95_high": 0.7586125034794564
+        }
+      ],
+      "source": "results/runs/latency/n50/result.json"
+    },
+    {
+      "job": "n50-comp",
+      "run_id": "5c2c1fa3-0e65-4ada-acae-c1bcbd7b117d",
+      "policy_spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human?n_action_steps=50&latency_compensation=auto",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "n_action_steps": 50,
+      "skip_stale": true,
+      "host": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "device": "cuda",
+      "started_at": "2026-09-28T09:47:17+00:00",
+      "points": [
+        {
+          "delay_steps": 0,
+          "delay_ms": 0,
+          "episodes": 50,
+          "successes": 39,
+          "success_rate": 0.78,
+          "ci95_low": 0.6475845041904229,
+          "ci95_high": 0.8724608402964129
+        },
+        {
+          "delay_steps": 2,
+          "delay_ms": 40,
+          "episodes": 50,
+          "successes": 34,
+          "success_rate": 0.68,
+          "ci95_low": 0.5418970269214489,
+          "ci95_high": 0.7924178373915169
+        },
+        {
+          "delay_steps": 5,
+          "delay_ms": 100,
+          "episodes": 50,
+          "successes": 38,
+          "success_rate": 0.76,
+          "ci95_low": 0.6258731624235248,
+          "ci95_high": 0.857026086028537
+        },
+        {
+          "delay_steps": 10,
+          "delay_ms": 200,
+          "episodes": 50,
+          "successes": 40,
+          "success_rate": 0.8,
+          "ci95_low": 0.6696289406807061,
+          "ci95_high": 0.8875624998409035
+        }
+      ],
+      "longer_time_limit": [
+        {
+          "condition": "latency-longer-limit@10",
+          "episodes": 50,
+          "successes": 43,
+          "success_rate": 0.86,
+          "ci95_low": 0.738138062897075,
+          "ci95_high": 0.9304916657288566
+        },
+        {
+          "condition": "latency-longer-limit@5",
+          "episodes": 50,
+          "successes": 39,
+          "success_rate": 0.78,
+          "ci95_low": 0.6475845041904229,
+          "ci95_high": 0.8724608402964129
+        }
+      ],
+      "source": "results/runs/latency/n50-comp/result.json"
+    },
+    {
+      "job": "n100",
+      "run_id": "90a0397a-68aa-4f7b-b23c-628256b68b35",
+      "policy_spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "n_action_steps": 100,
+      "skip_stale": false,
+      "host": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "device": "cuda",
+      "started_at": "2026-09-28T09:47:10+00:00",
+      "points": [
+        {
+          "delay_steps": 0,
+          "delay_ms": 0,
+          "episodes": 50,
+          "successes": 35,
+          "success_rate": 0.7,
+          "ci95_low": 0.5624964953583776,
+          "ci95_high": 0.808964464989362
+        },
+        {
+          "delay_steps": 2,
+          "delay_ms": 40,
+          "episodes": 50,
+          "successes": 34,
+          "success_rate": 0.68,
+          "ci95_low": 0.5418970269214489,
+          "ci95_high": 0.7924178373915169
+        },
+        {
+          "delay_steps": 5,
+          "delay_ms": 100,
+          "episodes": 50,
+          "successes": 34,
+          "success_rate": 0.68,
+          "ci95_low": 0.5418970269214489,
+          "ci95_high": 0.7924178373915169
+        },
+        {
+          "delay_steps": 10,
+          "delay_ms": 200,
+          "episodes": 50,
+          "successes": 24,
+          "success_rate": 0.48,
+          "ci95_low": 0.3479713528682593,
+          "ci95_high": 0.6148825510969667
+        }
+      ],
+      "longer_time_limit": [
+        {
+          "condition": "latency-longer-limit@10",
+          "episodes": 50,
+          "successes": 23,
+          "success_rate": 0.46,
+          "ci95_low": 0.3296965219246634,
+          "ci95_high": 0.5960112860057887
+        },
+        {
+          "condition": "latency-longer-limit@5",
+          "episodes": 50,
+          "successes": 34,
+          "success_rate": 0.68,
+          "ci95_low": 0.5418970269214489,
+          "ci95_high": 0.7924178373915169
+        }
+      ],
+      "source": "results/runs/latency/n100/result.json"
+    },
+    {
+      "job": "n100-comp",
+      "run_id": "3b761cb0-a42d-4a5e-a34c-add5105a7a8d",
+      "policy_spec": "lerobot:lerobot/act_aloha_sim_transfer_cube_human?latency_compensation=auto",
+      "checkpoint": "lerobot/act_aloha_sim_transfer_cube_human",
+      "n_action_steps": 100,
+      "skip_stale": true,
+      "host": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "device": "cuda",
+      "started_at": "2026-09-28T09:47:16+00:00",
+      "points": [
+        {
+          "delay_steps": 0,
+          "delay_ms": 0,
+          "episodes": 50,
+          "successes": 35,
+          "success_rate": 0.7,
+          "ci95_low": 0.5624964953583776,
+          "ci95_high": 0.808964464989362
+        },
+        {
+          "delay_steps": 2,
+          "delay_ms": 40,
+          "episodes": 50,
+          "successes": 36,
+          "success_rate": 0.72,
+          "ci95_low": 0.5833487630433644,
+          "ci95_high": 0.8252582933391494
+        },
+        {
+          "delay_steps": 5,
+          "delay_ms": 100,
+          "episodes": 50,
+          "successes": 36,
+          "success_rate": 0.72,
+          "ci95_low": 0.5833487630433644,
+          "ci95_high": 0.8252582933391494
+        },
+        {
+          "delay_steps": 10,
+          "delay_ms": 200,
+          "episodes": 50,
+          "successes": 36,
+          "success_rate": 0.72,
+          "ci95_low": 0.5833487630433644,
+          "ci95_high": 0.8252582933391494
+        }
+      ],
+      "longer_time_limit": [
+        {
+          "condition": "latency-longer-limit@10",
+          "episodes": 50,
+          "successes": 39,
+          "success_rate": 0.78,
+          "ci95_low": 0.6475845041904229,
+          "ci95_high": 0.8724608402964129
+        },
+        {
+          "condition": "latency-longer-limit@5",
+          "episodes": 50,
+          "successes": 38,
+          "success_rate": 0.76,
+          "ci95_low": 0.6258731624235248,
+          "ci95_high": 0.857026086028537
+        }
+      ],
+      "source": "results/runs/latency/n100-comp/result.json"
+    }
+  ],
+  "headline": "n_action_steps=50 at 200 ms delay: 12/50 (24%) without skipping vs 40/50 (80%) with skipping"
+}

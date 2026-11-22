@@ -1,0 +1,7 @@
+version: 1
+name: nominal
+description: No delay.
+env: pusht
+episodes: 30
+seed: 1000
+tags: [baseline]

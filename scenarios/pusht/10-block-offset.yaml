@@ -1,0 +1,14 @@
+version: 1
+name: block-offset
+description: The block starts a few centimeters from where the scene placed it.
+env: pusht
+episodes: 50
+seed: 1000
+sweep:
+  name: dx
+  values: [2, 5]
+perturbations:
+  - object_pose: { offset_cm: ["${dx}", 0] }
+assertions:
+  success_rate: { min: 0.4 }
+tags: [distribution-shift]

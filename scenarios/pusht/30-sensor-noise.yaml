@@ -1,0 +1,11 @@
+version: 1
+name: sensor-noise
+description: Camera sensor noise.
+env: pusht
+episodes: 50
+seed: 1000
+perturbations:
+  - image_noise: { std: 15 }
+assertions:
+  success_rate: { min: 0.4 }
+tags: [vision, sensor]

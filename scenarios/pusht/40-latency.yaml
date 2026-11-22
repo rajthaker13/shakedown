@@ -1,0 +1,11 @@
+version: 1
+name: action-latency
+description: Actions reach the robot late. One step is 100 ms.
+env: pusht
+episodes: 50
+seed: 1000
+perturbations:
+  - action_latency: { steps: 2 }
+assertions:
+  success_rate: { min: 0.4 }
+tags: [timing]

@@ -1,0 +1,6 @@
+version: 1
+name: nominal
+description: Unchanged scene.
+env: aloha/transfer_cube
+episodes: 3
+max_steps: 30

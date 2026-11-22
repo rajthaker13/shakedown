@@ -1,0 +1,140 @@
+name: Shakedown
+description: Run a Shakedown scenario suite against a robot policy and fail the job on a regression.
+branding:
+  icon: check-square
+  color: green
+
+inputs:
+  suite:
+    description: A scenario file or a directory of them.
+    required: true
+  policy:
+    description: "lerobot:<checkpoint>[?option=value], an http(s) URL, or 'random'."
+    required: true
+  label:
+    description: Name for this policy version. Defaults to the short commit SHA.
+    required: false
+  engine-path:
+    description: >
+      Path to a Shakedown engine directory to install, relative to the workspace.
+      Leave empty to install the engine that ships with this action.
+    required: false
+    default: ""
+  extras:
+    description: Extras to install with the engine.
+    required: false
+    default: lerobot
+  python-version:
+    required: false
+    default: "3.11"
+  workers:
+    description: Processes to spread conditions across.
+    required: false
+    default: "2"
+  episodes:
+    description: Override every scenario's episode count. Leave empty to use the scenario files.
+    required: false
+  videos:
+    description: failures, all or none.
+    required: false
+    default: failures
+  fail-on:
+    description: "Exit non-zero on: fail or warn."
+    required: false
+    default: fail
+  upload:
+    description: Send results to the Shakedown server. Needs url and api-key.
+    required: false
+    default: "false"
+  baseline-branch:
+    description: With upload, compare with the latest run on this branch.
+    required: false
+    default: main
+  url:
+    description: Address of the Shakedown server.
+    required: false
+  api-key:
+    description: Project API key. Pass it from a secret.
+    required: false
+  policy-token:
+    description: Bearer token for a served policy. Pass it from a secret.
+    required: false
+
+outputs:
+  verdict:
+    description: PASS, WARN, FAIL or ERROR.
+    value: ${{ steps.run.outputs.verdict }}
+  result:
+    description: Path to result.json.
+    value: ${{ steps.run.outputs.result }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install rendering libraries
+      if: runner.os == 'Linux'
+      shell: bash
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y -qq libegl1 libgl1 libosmesa6 libglfw3
+
+    - name: Install Shakedown
+      shell: bash
+      env:
+        INPUT_ENGINE_PATH: ${{ inputs.engine-path }}
+        INPUT_EXTRAS: ${{ inputs.extras }}
+      run: |
+        # The engine sits next to this action in the Shakedown repository.
+        engine="${INPUT_ENGINE_PATH:-$GITHUB_ACTION_PATH/../engine}"
+        python -m pip install --upgrade pip
+        python -m pip install -e "${engine}[${INPUT_EXTRAS}]"
+
+    - name: Run the suite
+      id: run
+      shell: bash
+      env:
+        SHAKEDOWN_URL: ${{ inputs.url }}
+        SHAKEDOWN_API_KEY: ${{ inputs.api-key }}
+        SHAKEDOWN_POLICY_TOKEN: ${{ inputs.policy-token }}
+        INPUT_SUITE: ${{ inputs.suite }}
+        INPUT_POLICY: ${{ inputs.policy }}
+        INPUT_LABEL: ${{ inputs.label }}
+        INPUT_WORKERS: ${{ inputs.workers }}
+        INPUT_EPISODES: ${{ inputs.episodes }}
+        INPUT_VIDEOS: ${{ inputs.videos }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_UPLOAD: ${{ inputs.upload }}
+        INPUT_BASELINE_BRANCH: ${{ inputs.baseline-branch }}
+      run: |
+        # Inputs arrive through the environment so that they are never
+        # interpreted as shell code.
+        label="${INPUT_LABEL:-${GITHUB_SHA::7}}"
+        args=(run "$INPUT_SUITE" --policy "$INPUT_POLICY" --label "$label"
+              --out shakedown-run --workers "$INPUT_WORKERS" --videos "$INPUT_VIDEOS"
+              --fail-on "$INPUT_FAIL_ON" --junit shakedown-run/junit.xml --no-progress)
+        if [ -n "$INPUT_EPISODES" ]; then args+=(--episodes "$INPUT_EPISODES"); fi
+        if [ "$INPUT_UPLOAD" = "true" ]; then
+          args+=(--upload --baseline-branch "$INPUT_BASELINE_BRANCH")
+        fi
+        set +e
+        shakedown "${args[@]}"
+        code=$?
+        set -e
+        if [ -f shakedown-run/result.json ]; then
+          verdict=$(python -c "import json; print(json.load(open('shakedown-run/result.json'))['verdict'])")
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          echo "result=shakedown-run/result.json" >> "$GITHUB_OUTPUT"
+        fi
+        exit $code
+
+    - name: Keep the results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: shakedown-run
+        path: shakedown-run
+        if-no-files-found: ignore

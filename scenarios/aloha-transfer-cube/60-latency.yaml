@@ -1,0 +1,14 @@
+version: 1
+name: action-latency
+description: Actions reach the robot late, as when inference runs on a remote server. One step is 20 ms.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+sweep:
+  name: steps
+  values: [2, 5]
+perturbations:
+  - action_latency: { steps: "${steps}" }
+assertions:
+  success_rate: { min: 0.7 }
+tags: [timing]

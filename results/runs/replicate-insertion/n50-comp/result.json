@@ -1,0 +1,3637 @@
+{
+  "schema": 1,
+  "id": "e86fc21b-5158-43e8-bf37-084382be3584",
+  "engine_version": "0.1.0",
+  "suite": "aloha-insertion-latency",
+  "policy": {
+    "label": "n50-comp",
+    "spec": "lerobot:lerobot/act_aloha_sim_insertion_human?n_action_steps=50&latency_compensation=auto",
+    "info": {
+      "kind": "lerobot",
+      "type": "act",
+      "checkpoint": "lerobot/act_aloha_sim_insertion_human",
+      "device": "cuda",
+      "dtype": "float32",
+      "parameters": 51613582,
+      "action_dim": 14,
+      "options": {
+        "n_action_steps": 50,
+        "latency_compensation": "auto"
+      },
+      "latency_compensation": "auto",
+      "weights_sha256": "5e0e5e5cd5b340b559db6fd3fa5d7ca051aef330c484b4b59bf4e04e4c95dc5b"
+    }
+  },
+  "git": {
+    "sha": null,
+    "branch": null,
+    "message": null,
+    "dirty": null,
+    "repository": null,
+    "pull_request": null
+  },
+  "host": {
+    "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+    "python": "3.11.10",
+    "machine": "x86_64"
+  },
+  "started_at": "2026-09-28T12:09:45+00:00",
+  "finished_at": "2026-09-28T12:25:04+00:00",
+  "duration_s": 919.05,
+  "baseline": null,
+  "verdict": "SKIP",
+  "summary": {
+    "conditions": 4,
+    "pass": 0,
+    "warn": 0,
+    "fail": 0,
+    "skip": 4,
+    "error": 0,
+    "regressions": 0,
+    "episodes": 200,
+    "successes": 44,
+    "success_rate": 0.22
+  },
+  "conditions": [
+    {
+      "key": "latency@10",
+      "scenario": "latency",
+      "label": "latency \u00b7 steps=10",
+      "description": "Actions reach the robot late. One step is 20 ms.",
+      "env": "aloha/insertion",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 10,
+      "tags": [
+        "timing"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 10
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency(steps=10)"
+      ],
+      "fingerprint": "499736870239874a",
+      "episodes": 50,
+      "successes": 10,
+      "success_rate": 0.2,
+      "ci_low": 0.11243750015909645,
+      "ci_high": 0.330371059319294,
+      "mean_steps_success": 364.1,
+      "contacts": {
+        "gripper:table": 48
+      },
+      "failure_labels": {
+        "lifted both parts but never brought them together": 2,
+        "peg reached the socket but was not inserted": 19,
+        "touched both parts but did not lift them": 12,
+        "did not grasp both the peg and the socket": 7
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": true,
+        "1001": false,
+        "1002": false,
+        "1003": false,
+        "1004": false,
+        "1005": false,
+        "1006": false,
+        "1007": true,
+        "1008": true,
+        "1009": true,
+        "1010": false,
+        "1011": false,
+        "1012": false,
+        "1013": true,
+        "1014": false,
+        "1015": true,
+        "1016": true,
+        "1017": false,
+        "1018": false,
+        "1019": false,
+        "1020": false,
+        "1021": false,
+        "1022": false,
+        "1023": false,
+        "1024": false,
+        "1025": false,
+        "1026": false,
+        "1027": false,
+        "1028": false,
+        "1029": false,
+        "1030": false,
+        "1031": false,
+        "1032": false,
+        "1033": false,
+        "1034": false,
+        "1035": false,
+        "1036": false,
+        "1037": true,
+        "1038": false,
+        "1039": false,
+        "1040": true,
+        "1041": false,
+        "1042": false,
+        "1043": false,
+        "1044": true,
+        "1045": false,
+        "1046": false,
+        "1047": false,
+        "1048": false,
+        "1049": false
+      },
+      "duration_s": 415.77,
+      "scenario_source": "version: 1\nname: latency\ndescription: Actions reach the robot late. One step is 20 ms.\nenv: aloha/insertion\nepisodes: 50\nseed: 1000\nsweep:\n  name: steps\n  values: [2, 5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": true,
+          "steps": 368,
+          "max_reward": 4.0,
+          "duration_s": 10.322,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": "episodes/latency_10/1000.mp4",
+          "trace": "episodes/latency_10/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 9.707,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 108
+          },
+          "video": "episodes/latency_10/1001.mp4",
+          "trace": "episodes/latency_10/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.346,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 102
+          },
+          "video": "episodes/latency_10/1002.mp4",
+          "trace": "episodes/latency_10/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.904,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 9,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 91
+          },
+          "video": "episodes/latency_10/1003.mp4",
+          "trace": "episodes/latency_10/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.261,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 9,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 119
+          },
+          "video": "episodes/latency_10/1004.mp4",
+          "trace": "episodes/latency_10/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.289,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 6,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 104
+          },
+          "video": "episodes/latency_10/1005.mp4",
+          "trace": "episodes/latency_10/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.1,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 5,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 190
+          },
+          "video": "episodes/latency_10/1006.mp4",
+          "trace": "episodes/latency_10/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": true,
+          "steps": 397,
+          "max_reward": 4.0,
+          "duration_s": 8.771,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 131
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": true,
+          "steps": 360,
+          "max_reward": 4.0,
+          "duration_s": 7.266,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": true,
+          "steps": 371,
+          "max_reward": 4.0,
+          "duration_s": 7.123,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 195
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.589,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 209
+          },
+          "video": "episodes/latency_10/1010.mp4",
+          "trace": "episodes/latency_10/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.771,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 10,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 366
+          },
+          "video": "episodes/latency_10/1011.mp4",
+          "trace": "episodes/latency_10/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.556,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 11,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": true,
+          "steps": 309,
+          "max_reward": 4.0,
+          "duration_s": 5.802,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 116
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.466,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 12,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 197
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": true,
+          "steps": 367,
+          "max_reward": 4.0,
+          "duration_s": 7.067,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 113
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 369,
+          "max_reward": 4.0,
+          "duration_s": 7.268,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 189
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.597,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 192
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.696,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 207
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.519,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 6,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 193
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.651,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 11,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 194
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.572,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.156,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 211
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.172,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 12,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 192
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.387,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 9,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 121
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.04,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 108
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.286,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 12,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 201
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.69,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 9,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 266
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.487,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 12,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 194
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.343,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 10,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 104
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.457,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 353
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.202,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 7,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 193
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.336,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 7,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.023,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 105
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.958,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 11,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.547,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 11,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 129
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 7.357,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 5,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 208
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 367,
+          "max_reward": 4.0,
+          "duration_s": 6.914,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 199
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.111,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 11,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 7.286,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 274
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 358,
+          "max_reward": 4.0,
+          "duration_s": 6.53,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 116
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.279,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 207
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 7.332,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 9,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_10/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.413,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": true,
+          "steps": 375,
+          "max_reward": 4.0,
+          "duration_s": 6.797,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 99
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.221,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 96
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 7.133,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 8,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 107
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.324,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 12,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 113
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 7.178,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 9,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 102
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.193,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 12,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 144
+          },
+          "video": null,
+          "trace": "episodes/latency_10/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "latency@2",
+      "scenario": "latency",
+      "label": "latency \u00b7 steps=2",
+      "description": "Actions reach the robot late. One step is 20 ms.",
+      "env": "aloha/insertion",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 2,
+      "tags": [
+        "timing"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 2
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency"
+      ],
+      "fingerprint": "15edcf51f000dcc6",
+      "episodes": 50,
+      "successes": 11,
+      "success_rate": 0.22,
+      "ci_low": 0.12753915970358715,
+      "ci_high": 0.35241549580957726,
+      "mean_steps_success": 352.1818181818182,
+      "contacts": {
+        "gripper:table": 49
+      },
+      "failure_labels": {
+        "peg reached the socket but was not inserted": 18,
+        "lifted both parts but never brought them together": 2,
+        "touched both parts but did not lift them": 11,
+        "did not grasp both the peg and the socket": 8
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": true,
+        "1001": false,
+        "1002": false,
+        "1003": false,
+        "1004": false,
+        "1005": true,
+        "1006": false,
+        "1007": false,
+        "1008": false,
+        "1009": true,
+        "1010": false,
+        "1011": false,
+        "1012": false,
+        "1013": false,
+        "1014": false,
+        "1015": true,
+        "1016": true,
+        "1017": false,
+        "1018": false,
+        "1019": true,
+        "1020": false,
+        "1021": false,
+        "1022": false,
+        "1023": true,
+        "1024": false,
+        "1025": false,
+        "1026": false,
+        "1027": false,
+        "1028": false,
+        "1029": true,
+        "1030": false,
+        "1031": false,
+        "1032": false,
+        "1033": false,
+        "1034": true,
+        "1035": false,
+        "1036": false,
+        "1037": true,
+        "1038": false,
+        "1039": false,
+        "1040": false,
+        "1041": false,
+        "1042": false,
+        "1043": false,
+        "1044": false,
+        "1045": true,
+        "1046": false,
+        "1047": false,
+        "1048": false,
+        "1049": false
+      },
+      "duration_s": 433.41,
+      "scenario_source": "version: 1\nname: latency\ndescription: Actions reach the robot late. One step is 20 ms.\nenv: aloha/insertion\nepisodes: 50\nseed: 1000\nsweep:\n  name: steps\n  values: [2, 5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": true,
+          "steps": 329,
+          "max_reward": 4.0,
+          "duration_s": 6.649,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": "episodes/latency_2/1000.mp4",
+          "trace": "episodes/latency_2/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.998,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 55,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 116
+          },
+          "video": "episodes/latency_2/1001.mp4",
+          "trace": "episodes/latency_2/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.67,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 44,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 100
+          },
+          "video": "episodes/latency_2/1002.mp4",
+          "trace": "episodes/latency_2/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.919,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": 108,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 98
+          },
+          "video": "episodes/latency_2/1003.mp4",
+          "trace": "episodes/latency_2/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.877,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 58,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 119
+          },
+          "video": "episodes/latency_2/1004.mp4",
+          "trace": "episodes/latency_2/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": true,
+          "steps": 278,
+          "max_reward": 4.0,
+          "duration_s": 6.845,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 98
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.118,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 114,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 175
+          },
+          "video": "episodes/latency_2/1006.mp4",
+          "trace": "episodes/latency_2/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 10.046,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 59,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 138
+          },
+          "video": "episodes/latency_2/1007.mp4",
+          "trace": "episodes/latency_2/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 9.295,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 144,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 195
+          },
+          "video": "episodes/latency_2/1008.mp4",
+          "trace": "episodes/latency_2/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": true,
+          "steps": 354,
+          "max_reward": 4.0,
+          "duration_s": 7.591,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 113
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.639,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 50,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": "episodes/latency_2/1010.mp4",
+          "trace": "episodes/latency_2/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.865,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": 58,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 270
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.371,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 52,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.489,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 123,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.486,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 52,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 198
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": true,
+          "steps": 324,
+          "max_reward": 4.0,
+          "duration_s": 7.154,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 342,
+          "max_reward": 4.0,
+          "duration_s": 7.13,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 177
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.628,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 44,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 192
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.889,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 49,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 221
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": true,
+          "steps": 358,
+          "max_reward": 4.0,
+          "duration_s": 7.641,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 190
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.243,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 51,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 177
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.549,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 63,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 112
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.93,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 54,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_2/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": true,
+          "steps": 392,
+          "max_reward": 4.0,
+          "duration_s": 8.587,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 182
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.576,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 44,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 122
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.964,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 44,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 99
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.309,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 56,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 206
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 9.128,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 55,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 238
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.618,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 53,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 192
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": true,
+          "steps": 388,
+          "max_reward": 4.0,
+          "duration_s": 8.266,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 104
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.66,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 112,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.135,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 26,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 184
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.849,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 43,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.851,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 109,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 99
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": true,
+          "steps": 376,
+          "max_reward": 4.0,
+          "duration_s": 8.151,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 105
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.521,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 131,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.931,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 60,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 210
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 345,
+          "max_reward": 4.0,
+          "duration_s": 7.238,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 194
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.762,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 240,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 9.257,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 131,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 399
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.452,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 124,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 132
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.647,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 41,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 9.117,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 58,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 371
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.564,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 150,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 128
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.265,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 48,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 101
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": true,
+          "steps": 388,
+          "max_reward": 4.0,
+          "duration_s": 9.078,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 98
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.872,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 60,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.838,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 58,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 114
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.931,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 44,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 114
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.241,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 61,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 146
+          },
+          "video": null,
+          "trace": "episodes/latency_2/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "latency@5",
+      "scenario": "latency",
+      "label": "latency \u00b7 steps=5",
+      "description": "Actions reach the robot late. One step is 20 ms.",
+      "env": "aloha/insertion",
+      "backend": "mujoco",
+      "sweep_name": "steps",
+      "sweep_value": 5,
+      "tags": [
+        "timing"
+      ],
+      "perturbations": [
+        {
+          "action_latency": {
+            "steps": 5
+          }
+        }
+      ],
+      "perturbation_summary": [
+        "action_latency(steps=5)"
+      ],
+      "fingerprint": "42029612e8d31f86",
+      "episodes": 50,
+      "successes": 11,
+      "success_rate": 0.22,
+      "ci_low": 0.12753915970358715,
+      "ci_high": 0.35241549580957726,
+      "mean_steps_success": 348.3636363636364,
+      "contacts": {
+        "gripper:table": 48
+      },
+      "failure_labels": {
+        "peg reached the socket but was not inserted": 17,
+        "touched both parts but did not lift them": 12,
+        "did not grasp both the peg and the socket": 8,
+        "lifted both parts but never brought them together": 2
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": true,
+        "1001": false,
+        "1002": false,
+        "1003": false,
+        "1004": false,
+        "1005": true,
+        "1006": false,
+        "1007": false,
+        "1008": false,
+        "1009": true,
+        "1010": false,
+        "1011": false,
+        "1012": false,
+        "1013": false,
+        "1014": false,
+        "1015": true,
+        "1016": true,
+        "1017": false,
+        "1018": false,
+        "1019": true,
+        "1020": false,
+        "1021": false,
+        "1022": false,
+        "1023": false,
+        "1024": false,
+        "1025": false,
+        "1026": true,
+        "1027": false,
+        "1028": false,
+        "1029": true,
+        "1030": false,
+        "1031": false,
+        "1032": true,
+        "1033": false,
+        "1034": true,
+        "1035": false,
+        "1036": false,
+        "1037": false,
+        "1038": false,
+        "1039": false,
+        "1040": false,
+        "1041": false,
+        "1042": false,
+        "1043": false,
+        "1044": false,
+        "1045": false,
+        "1046": false,
+        "1047": false,
+        "1048": true,
+        "1049": false
+      },
+      "duration_s": 441.09,
+      "scenario_source": "version: 1\nname: latency\ndescription: Actions reach the robot late. One step is 20 ms.\nenv: aloha/insertion\nepisodes: 50\nseed: 1000\nsweep:\n  name: steps\n  values: [2, 5, 10]\nperturbations:\n  - action_latency: { steps: \"${steps}\" }\ntags: [timing]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": true,
+          "steps": 366,
+          "max_reward": 4.0,
+          "duration_s": 7.94,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": "episodes/latency_5/1000.mp4",
+          "trace": "episodes/latency_5/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.932,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 15,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 114
+          },
+          "video": "episodes/latency_5/1001.mp4",
+          "trace": "episodes/latency_5/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.035,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 100
+          },
+          "video": "episodes/latency_5/1002.mp4",
+          "trace": "episodes/latency_5/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.077,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 96
+          },
+          "video": "episodes/latency_5/1003.mp4",
+          "trace": "episodes/latency_5/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.346,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 16,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 123
+          },
+          "video": "episodes/latency_5/1004.mp4",
+          "trace": "episodes/latency_5/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": true,
+          "steps": 271,
+          "max_reward": 4.0,
+          "duration_s": 6.249,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 103
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.831,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 10,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 174
+          },
+          "video": "episodes/latency_5/1006.mp4",
+          "trace": "episodes/latency_5/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.773,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 16,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 138
+          },
+          "video": "episodes/latency_5/1007.mp4",
+          "trace": "episodes/latency_5/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.705,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 20,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 202
+          },
+          "video": "episodes/latency_5/1008.mp4",
+          "trace": "episodes/latency_5/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": true,
+          "steps": 376,
+          "max_reward": 4.0,
+          "duration_s": 8.102,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 193
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.486,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 15,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 110
+          },
+          "video": "episodes/latency_5/1010.mp4",
+          "trace": "episodes/latency_5/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.896,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 17,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 375
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.697,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 17,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 112
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.086,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 14,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 119
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.876,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 18,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 201
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": true,
+          "steps": 346,
+          "max_reward": 4.0,
+          "duration_s": 7.542,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 113
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 339,
+          "max_reward": 4.0,
+          "duration_s": 8.577,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 181
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.942,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 19,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 193
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.758,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 15,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 219
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": true,
+          "steps": 384,
+          "max_reward": 4.0,
+          "duration_s": 8.451,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 186
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.688,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 18,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 184
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.697,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 18,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.799,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 19,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.516,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 18,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 180
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.533,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 121
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.59,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 105
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": true,
+          "steps": 392,
+          "max_reward": 4.0,
+          "duration_s": 8.558,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 145
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.253,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 250
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.268,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 18,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 194
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": true,
+          "steps": 347,
+          "max_reward": 4.0,
+          "duration_s": 7.649,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 105
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.751,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 340
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.823,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 13,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 199
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": true,
+          "steps": 337,
+          "max_reward": 4.0,
+          "duration_s": 7.622,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 117
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.944,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 101
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": true,
+          "steps": 322,
+          "max_reward": 4.0,
+          "duration_s": 7.203,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 103
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.815,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 17,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 126
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.978,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 10,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 209
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.916,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": 18,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 197
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.965,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 17,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.872,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 20,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 383
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.981,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 10,
+          "nominal_success": true,
+          "contacts": {
+            "gripper:table": 209
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.857,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 118
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.932,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 15,
+          "nominal_success": false,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/latency_5/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.029,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 20,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.965,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 16,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 99
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.805,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 96
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.806,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": 14,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 110
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.602,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 17,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": true,
+          "steps": 352,
+          "max_reward": 4.0,
+          "duration_s": 7.778,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.83,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": 18,
+          "nominal_success": false,
+          "contacts": {
+            "gripper:table": 140
+          },
+          "video": null,
+          "trace": "episodes/latency_5/1049.json",
+          "error": null
+        }
+      ]
+    },
+    {
+      "key": "nominal",
+      "scenario": "nominal",
+      "label": "nominal",
+      "description": "No delay. Every other scenario is read against this one.",
+      "env": "aloha/insertion",
+      "backend": "mujoco",
+      "sweep_name": null,
+      "sweep_value": null,
+      "tags": [
+        "baseline"
+      ],
+      "perturbations": [],
+      "perturbation_summary": [],
+      "fingerprint": "d465165c9409e3e9",
+      "episodes": 50,
+      "successes": 12,
+      "success_rate": 0.24,
+      "ci_low": 0.14297391397146308,
+      "ci_high": 0.37412683757647525,
+      "mean_steps_success": 342.4166666666667,
+      "contacts": {
+        "gripper:table": 49
+      },
+      "failure_labels": {
+        "peg reached the socket but was not inserted": 17,
+        "touched both parts but did not lift them": 10,
+        "lifted both parts but never brought them together": 4,
+        "did not grasp both the peg and the socket": 7
+      },
+      "verdict": "SKIP",
+      "checks": [],
+      "comparison": null,
+      "errors": 0,
+      "outcomes": {
+        "1000": false,
+        "1001": false,
+        "1002": false,
+        "1003": false,
+        "1004": false,
+        "1005": true,
+        "1006": false,
+        "1007": true,
+        "1008": false,
+        "1009": true,
+        "1010": false,
+        "1011": false,
+        "1012": false,
+        "1013": true,
+        "1014": false,
+        "1015": true,
+        "1016": true,
+        "1017": false,
+        "1018": false,
+        "1019": true,
+        "1020": false,
+        "1021": false,
+        "1022": false,
+        "1023": true,
+        "1024": false,
+        "1025": false,
+        "1026": true,
+        "1027": false,
+        "1028": false,
+        "1029": false,
+        "1030": false,
+        "1031": false,
+        "1032": false,
+        "1033": false,
+        "1034": false,
+        "1035": false,
+        "1036": false,
+        "1037": true,
+        "1038": false,
+        "1039": false,
+        "1040": true,
+        "1041": false,
+        "1042": false,
+        "1043": false,
+        "1044": false,
+        "1045": false,
+        "1046": false,
+        "1047": false,
+        "1048": true,
+        "1049": false
+      },
+      "duration_s": 421.51,
+      "scenario_source": "version: 1\nname: nominal\ndescription: No delay. Every other scenario is read against this one.\nenv: aloha/insertion\nepisodes: 50\nseed: 1000\ntags: [baseline]\n",
+      "error": null,
+      "episodes_detail": [
+        {
+          "seed": 1000,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.683,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 110
+          },
+          "video": "episodes/nominal/1000.mp4",
+          "trace": "episodes/nominal/1000.json",
+          "error": null
+        },
+        {
+          "seed": 1001,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.453,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 120
+          },
+          "video": "episodes/nominal/1001.mp4",
+          "trace": "episodes/nominal/1001.json",
+          "error": null
+        },
+        {
+          "seed": 1002,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.745,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 101
+          },
+          "video": "episodes/nominal/1002.mp4",
+          "trace": "episodes/nominal/1002.json",
+          "error": null
+        },
+        {
+          "seed": 1003,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.613,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 100
+          },
+          "video": "episodes/nominal/1003.mp4",
+          "trace": "episodes/nominal/1003.json",
+          "error": null
+        },
+        {
+          "seed": 1004,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.352,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 120
+          },
+          "video": "episodes/nominal/1004.mp4",
+          "trace": "episodes/nominal/1004.json",
+          "error": null
+        },
+        {
+          "seed": 1005,
+          "success": true,
+          "steps": 253,
+          "max_reward": 4.0,
+          "duration_s": 5.485,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 97
+          },
+          "video": "episodes/nominal/1005.mp4",
+          "trace": "episodes/nominal/1005.json",
+          "error": null
+        },
+        {
+          "seed": 1006,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.449,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 174
+          },
+          "video": "episodes/nominal/1006.mp4",
+          "trace": "episodes/nominal/1006.json",
+          "error": null
+        },
+        {
+          "seed": 1007,
+          "success": true,
+          "steps": 400,
+          "max_reward": 4.0,
+          "duration_s": 8.552,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 140
+          },
+          "video": null,
+          "trace": "episodes/nominal/1007.json",
+          "error": null
+        },
+        {
+          "seed": 1008,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.24,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 183
+          },
+          "video": "episodes/nominal/1008.mp4",
+          "trace": "episodes/nominal/1008.json",
+          "error": null
+        },
+        {
+          "seed": 1009,
+          "success": true,
+          "steps": 367,
+          "max_reward": 4.0,
+          "duration_s": 8.209,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 114
+          },
+          "video": null,
+          "trace": "episodes/nominal/1009.json",
+          "error": null
+        },
+        {
+          "seed": 1010,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.448,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": "episodes/nominal/1010.mp4",
+          "trace": "episodes/nominal/1010.json",
+          "error": null
+        },
+        {
+          "seed": 1011,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 9.0,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 267
+          },
+          "video": null,
+          "trace": "episodes/nominal/1011.json",
+          "error": null
+        },
+        {
+          "seed": 1012,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 9.167,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 111
+          },
+          "video": null,
+          "trace": "episodes/nominal/1012.json",
+          "error": null
+        },
+        {
+          "seed": 1013,
+          "success": true,
+          "steps": 315,
+          "max_reward": 4.0,
+          "duration_s": 7.134,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 113
+          },
+          "video": null,
+          "trace": "episodes/nominal/1013.json",
+          "error": null
+        },
+        {
+          "seed": 1014,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.776,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 199
+          },
+          "video": null,
+          "trace": "episodes/nominal/1014.json",
+          "error": null
+        },
+        {
+          "seed": 1015,
+          "success": true,
+          "steps": 331,
+          "max_reward": 4.0,
+          "duration_s": 7.092,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 109
+          },
+          "video": null,
+          "trace": "episodes/nominal/1015.json",
+          "error": null
+        },
+        {
+          "seed": 1016,
+          "success": true,
+          "steps": 369,
+          "max_reward": 4.0,
+          "duration_s": 7.652,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 181
+          },
+          "video": null,
+          "trace": "episodes/nominal/1016.json",
+          "error": null
+        },
+        {
+          "seed": 1017,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.101,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 191
+          },
+          "video": null,
+          "trace": "episodes/nominal/1017.json",
+          "error": null
+        },
+        {
+          "seed": 1018,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.589,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 222
+          },
+          "video": null,
+          "trace": "episodes/nominal/1018.json",
+          "error": null
+        },
+        {
+          "seed": 1019,
+          "success": true,
+          "steps": 336,
+          "max_reward": 4.0,
+          "duration_s": 7.132,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 187
+          },
+          "video": null,
+          "trace": "episodes/nominal/1019.json",
+          "error": null
+        },
+        {
+          "seed": 1020,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 9.014,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 180
+          },
+          "video": null,
+          "trace": "episodes/nominal/1020.json",
+          "error": null
+        },
+        {
+          "seed": 1021,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.262,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 112
+          },
+          "video": null,
+          "trace": "episodes/nominal/1021.json",
+          "error": null
+        },
+        {
+          "seed": 1022,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.045,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {},
+          "video": null,
+          "trace": "episodes/nominal/1022.json",
+          "error": null
+        },
+        {
+          "seed": 1023,
+          "success": true,
+          "steps": 375,
+          "max_reward": 4.0,
+          "duration_s": 8.568,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 187
+          },
+          "video": null,
+          "trace": "episodes/nominal/1023.json",
+          "error": null
+        },
+        {
+          "seed": 1024,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.167,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 123
+          },
+          "video": null,
+          "trace": "episodes/nominal/1024.json",
+          "error": null
+        },
+        {
+          "seed": 1025,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.154,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 100
+          },
+          "video": null,
+          "trace": "episodes/nominal/1025.json",
+          "error": null
+        },
+        {
+          "seed": 1026,
+          "success": true,
+          "steps": 380,
+          "max_reward": 4.0,
+          "duration_s": 8.467,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 197
+          },
+          "video": null,
+          "trace": "episodes/nominal/1026.json",
+          "error": null
+        },
+        {
+          "seed": 1027,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.188,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 224
+          },
+          "video": null,
+          "trace": "episodes/nominal/1027.json",
+          "error": null
+        },
+        {
+          "seed": 1028,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.589,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 178
+          },
+          "video": null,
+          "trace": "episodes/nominal/1028.json",
+          "error": null
+        },
+        {
+          "seed": 1029,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.322,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 105
+          },
+          "video": null,
+          "trace": "episodes/nominal/1029.json",
+          "error": null
+        },
+        {
+          "seed": 1030,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.263,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 110
+          },
+          "video": null,
+          "trace": "episodes/nominal/1030.json",
+          "error": null
+        },
+        {
+          "seed": 1031,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.348,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 184
+          },
+          "video": null,
+          "trace": "episodes/nominal/1031.json",
+          "error": null
+        },
+        {
+          "seed": 1032,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.236,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 114
+          },
+          "video": null,
+          "trace": "episodes/nominal/1032.json",
+          "error": null
+        },
+        {
+          "seed": 1033,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.203,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 100
+          },
+          "video": null,
+          "trace": "episodes/nominal/1033.json",
+          "error": null
+        },
+        {
+          "seed": 1034,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.266,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 107
+          },
+          "video": null,
+          "trace": "episodes/nominal/1034.json",
+          "error": null
+        },
+        {
+          "seed": 1035,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.116,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 127
+          },
+          "video": null,
+          "trace": "episodes/nominal/1035.json",
+          "error": null
+        },
+        {
+          "seed": 1036,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 7.92,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 200
+          },
+          "video": null,
+          "trace": "episodes/nominal/1036.json",
+          "error": null
+        },
+        {
+          "seed": 1037,
+          "success": true,
+          "steps": 346,
+          "max_reward": 4.0,
+          "duration_s": 6.844,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 196
+          },
+          "video": null,
+          "trace": "episodes/nominal/1037.json",
+          "error": null
+        },
+        {
+          "seed": 1038,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 7.92,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 107
+          },
+          "video": null,
+          "trace": "episodes/nominal/1038.json",
+          "error": null
+        },
+        {
+          "seed": 1039,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.712,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 234
+          },
+          "video": null,
+          "trace": "episodes/nominal/1039.json",
+          "error": null
+        },
+        {
+          "seed": 1040,
+          "success": true,
+          "steps": 323,
+          "max_reward": 4.0,
+          "duration_s": 7.393,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 125
+          },
+          "video": null,
+          "trace": "episodes/nominal/1040.json",
+          "error": null
+        },
+        {
+          "seed": 1041,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.999,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 110
+          },
+          "video": null,
+          "trace": "episodes/nominal/1041.json",
+          "error": null
+        },
+        {
+          "seed": 1042,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 9.166,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 342
+          },
+          "video": null,
+          "trace": "episodes/nominal/1042.json",
+          "error": null
+        },
+        {
+          "seed": 1043,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.902,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 136
+          },
+          "video": null,
+          "trace": "episodes/nominal/1043.json",
+          "error": null
+        },
+        {
+          "seed": 1044,
+          "success": false,
+          "steps": 400,
+          "max_reward": 3.0,
+          "duration_s": 8.161,
+          "failure_label": "peg reached the socket but was not inserted",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 101
+          },
+          "video": null,
+          "trace": "episodes/nominal/1044.json",
+          "error": null
+        },
+        {
+          "seed": 1045,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 8.216,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 98
+          },
+          "video": null,
+          "trace": "episodes/nominal/1045.json",
+          "error": null
+        },
+        {
+          "seed": 1046,
+          "success": false,
+          "steps": 400,
+          "max_reward": 0.0,
+          "duration_s": 8.062,
+          "failure_label": "did not grasp both the peg and the socket",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 108
+          },
+          "video": null,
+          "trace": "episodes/nominal/1046.json",
+          "error": null
+        },
+        {
+          "seed": 1047,
+          "success": false,
+          "steps": 400,
+          "max_reward": 2.0,
+          "duration_s": 8.048,
+          "failure_label": "lifted both parts but never brought them together",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 115
+          },
+          "video": null,
+          "trace": "episodes/nominal/1047.json",
+          "error": null
+        },
+        {
+          "seed": 1048,
+          "success": true,
+          "steps": 314,
+          "max_reward": 4.0,
+          "duration_s": 6.494,
+          "failure_label": null,
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 118
+          },
+          "video": null,
+          "trace": "episodes/nominal/1048.json",
+          "error": null
+        },
+        {
+          "seed": 1049,
+          "success": false,
+          "steps": 400,
+          "max_reward": 1.0,
+          "duration_s": 9.03,
+          "failure_label": "touched both parts but did not lift them",
+          "first_divergence_step": null,
+          "nominal_success": null,
+          "contacts": {
+            "gripper:table": 250
+          },
+          "video": null,
+          "trace": "episodes/nominal/1049.json",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

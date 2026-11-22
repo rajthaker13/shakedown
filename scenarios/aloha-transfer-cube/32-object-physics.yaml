@@ -1,0 +1,11 @@
+version: 1
+name: object-slippery
+description: A heavier cube with a low-friction surface, as with a different material or a dusty part.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+perturbations:
+  - object_physics: { mass_scale: 3.0, friction_scale: 0.3 }
+assertions:
+  success_rate: { min: 0.7 }
+tags: [physics]

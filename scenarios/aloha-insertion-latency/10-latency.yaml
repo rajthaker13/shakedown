@@ -1,0 +1,12 @@
+version: 1
+name: latency
+description: Actions reach the robot late. One step is 20 ms.
+env: aloha/insertion
+episodes: 50
+seed: 1000
+sweep:
+  name: steps
+  values: [2, 5, 10]
+perturbations:
+  - action_latency: { steps: "${steps}" }
+tags: [timing]

@@ -1,0 +1,14 @@
+version: 1
+name: sensor-noise
+description: Camera sensor noise, as from low light gain or a cheaper camera.
+env: aloha/transfer_cube
+episodes: 50
+seed: 1000
+sweep:
+  name: std
+  values: [8, 20]
+perturbations:
+  - image_noise: { std: "${std}" }
+assertions:
+  success_rate: { min: 0.7 }
+tags: [vision, sensor]
